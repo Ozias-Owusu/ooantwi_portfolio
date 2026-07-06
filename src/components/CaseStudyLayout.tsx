@@ -6,6 +6,7 @@ import SEO from './SEO'
 import TechBadge from './TechBadge'
 import DeviceMockup from './DeviceMockup'
 import ScrollReveal from './ScrollReveal'
+import EmployerProjectNotice from './EmployerProjectNotice'
 
 interface CaseStudyLayoutProps {
   project: Project
@@ -51,7 +52,12 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             <h1 className="font-display text-4xl font-bold text-[var(--text-primary)] md:text-5xl">
               {project.displayName}
             </h1>
-            <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--text-muted)]">
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-[var(--text-muted)]">
+              {project.scopeLabel && (
+                <span className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-3 py-1 font-mono text-xs text-[var(--accent)]">
+                  {project.scopeLabel}
+                </span>
+              )}
               {project.role && <span>{project.role}</span>}
               {project.timeline && (
                 <>
@@ -68,7 +74,13 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             </div>
             <p className="mt-6 text-lg text-[var(--text-muted)]">{project.description}</p>
 
-            {(project.liveUrl || project.apiUrl) && (
+            {project.employerProject && (
+              <div className="mt-6">
+                <EmployerProjectNotice />
+              </div>
+            )}
+
+            {(project.liveUrl || (project.apiUrl && !project.employerProject)) && (
               <div className="mt-6 flex flex-wrap gap-3">
                 {project.liveUrl && (
                   <a
@@ -81,7 +93,7 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                     Live Demo
                   </a>
                 )}
-                {project.apiUrl && (
+                {project.apiUrl && !project.employerProject && (
                   <a
                     href={project.apiUrl}
                     target="_blank"
@@ -152,8 +164,13 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             <ScrollReveal>
               <section>
                 <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
-                  Screenshots
+                  {project.employerProject ? 'Concept Preview' : 'Screenshots'}
                 </h2>
+                {project.employerProject && (
+                  <p className="mt-2 text-sm text-[var(--text-muted)]">
+                    Illustrative mockups only — not production UI or client data.
+                  </p>
+                )}
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <DeviceMockup variant={project.slug} type="browser" className="rounded-2xl border border-[var(--border)] overflow-hidden" />
                   <DeviceMockup variant={project.slug} type="phone" className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]" />

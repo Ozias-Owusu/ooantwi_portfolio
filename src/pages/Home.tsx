@@ -8,10 +8,11 @@ import SkillGrid from '@/components/SkillGrid'
 import Timeline from '@/components/Timeline'
 import ScrollReveal from '@/components/ScrollReveal'
 import { profile } from '@/data/profile'
-import { getFeaturedProjects } from '@/data/projects'
+import { getFeaturedProjects, formatProjectCountPlus, getVisibleProjectCount } from '@/data/projects'
 
 export default function Home() {
   const featured = getFeaturedProjects()
+  const projectCountLabel = formatProjectCountPlus(getVisibleProjectCount())
 
   return (
     <>
@@ -27,12 +28,12 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <ScrollReveal>
             <SectionHeading
-              eyebrow="Featured Work"
-              title="Projects that ship"
-              subtitle="From marketplace ecosystems to enterprise mobility — real products for real people."
+              eyebrow="Live Project"
+              title="Frankates Marketplace"
+              subtitle="A production multi-vendor marketplace connecting local vendors, customers, and drivers in Ghana."
             />
           </ScrollReveal>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mx-auto max-w-3xl">
             {featured.map((project, i) => (
               <ScrollReveal key={project.slug} delay={i * 0.08}>
                 <ProjectCard project={project} featured />
@@ -44,7 +45,7 @@ export default function Home() {
               to="/projects"
               className="focus-ring inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
             >
-              View all 20+ projects
+              View all {projectCountLabel} projects
               <ArrowRight size={18} />
             </Link>
           </ScrollReveal>

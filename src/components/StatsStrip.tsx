@@ -1,8 +1,9 @@
 import { profile } from '@/data/profile'
+import { formatProjectCountPlus, getVisibleProjectCount } from '@/data/projects'
 
 export default function StatsStrip() {
   const stats = [
-    { value: profile.stats.projects, label: 'Projects shipped' },
+    { value: formatProjectCountPlus(getVisibleProjectCount()), label: 'Projects shipped' },
     { value: profile.stats.years, label: 'Years building' },
     { value: profile.stats.technologies, label: 'Technologies' },
     { value: '4', label: 'Platforms' },

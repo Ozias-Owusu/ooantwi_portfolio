@@ -54,6 +54,12 @@ export default function ProjectCard({ project, featured }: ProjectCardProps) {
           {project.shortDescription}
         </p>
 
+        {project.scopeLabel && (
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-[var(--accent)]">
+            {project.scopeLabel}
+          </p>
+        )}
+
         <div className="mb-4 flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((tech) => (
             <TechBadge key={tech} label={tech} />

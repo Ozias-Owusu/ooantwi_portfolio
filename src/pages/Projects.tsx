@@ -4,11 +4,12 @@ import SectionHeading from '@/components/SectionHeading'
 import ProjectFilter from '@/components/ProjectFilter'
 import ProjectCard from '@/components/ProjectCard'
 import ScrollReveal from '@/components/ScrollReveal'
-import { filterProjects, type FilterCategory } from '@/data/projects'
+import { filterProjects, formatProjectCountPlus, getVisibleProjectCount, type FilterCategory } from '@/data/projects'
 
 export default function Projects() {
   const [category, setCategory] = useState<FilterCategory>('All')
   const [search, setSearch] = useState('')
+  const projectCountLabel = formatProjectCountPlus(getVisibleProjectCount())
 
   const filtered = useMemo(
     () => filterProjects(category, search),
@@ -19,7 +20,7 @@ export default function Projects() {
     <>
       <SEO
         title="Projects"
-        description="Portfolio of 20+ web, mobile, and backend projects — marketplaces, enterprise apps, and community tools."
+        description={`Portfolio of ${projectCountLabel} web, mobile, and backend projects — marketplaces, enterprise apps, and community tools.`}
         path="/projects"
       />
 

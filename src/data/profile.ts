@@ -20,7 +20,6 @@ I care about building tools that reach people who are usually left out of modern
     'Marketplace platforms, logistics & delivery, enterprise mobility, Ghana eVAT/tax systems, visitor management, and community-facing products.',
   languages: ['English (fluent)', 'Twi'],
   stats: {
-    projects: '20+',
     years: '4+',
     technologies: '15+',
   },

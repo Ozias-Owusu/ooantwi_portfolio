@@ -12,12 +12,12 @@ A production-ready personal developer portfolio built with React 19, Vite 8, Tai
 - Lucide React
 
 ## Pages and routes
-- / ó home page
-- /projects ó searchable and filterable project gallery
-- /projects/:slug ó project case study pages
-- /about ó biography, timeline, and current focus
-- /contact ó client-side validated contact form with mailto fallback
-- * ó branded 404 page
+- / ù home page
+- /projects ù searchable and filterable project gallery
+- /projects/:slug ù project case study pages
+- /about ù biography, timeline, and current focus
+- /contact ù client-side validated contact form with mailto fallback
+- * ù branded 404 page
 
 ## Getting started
 `ash
@@ -54,7 +54,7 @@ Replace these placeholders before deploying publicly:
 - Optional: replace generated SVG project covers with real screenshots using scripts/capture-project-screenshots.md
 
 ## Project content
-The portfolio includes 20 projects spanning:
+The portfolio includes 17 visible projects spanning:
 - Marketplace and e-commerce
 - Enterprise mobility
 - Ghana eVAT and tax systems

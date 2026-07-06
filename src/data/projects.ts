@@ -13,6 +13,8 @@ export interface Project {
   category: string
   categories: Exclude<FilterCategory, 'All'>[]
   role?: string
+  scopeLabel?: string
+  employerProject?: boolean
   stack: string[]
   liveUrl?: string
   apiUrl?: string
@@ -27,11 +29,15 @@ export interface Project {
   technicalHighlights: string[]
   outcome: string
   featured: boolean
+  hidden?: boolean
   priority: number
   accentColor: string
   timeline?: string
   year?: string
 }
+
+export const EMPLOYER_PROJECT_DISCLAIMER =
+  'Built as part of my work at Persol Systems. Details are shared at a high level in line with confidentiality requirements. Visuals are conceptual mockups, not production screenshots or live systems.'
 
 export const projects: Project[] = [
   {
@@ -95,17 +101,19 @@ export const projects: Project[] = [
   },
   {
     slug: 'timetrakker-logistics',
-    displayName: 'TimeTrakker Logistics',
-    category: 'Enterprise Mobile',
+    displayName: 'Enterprise Logistics Driver App',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Mobile Developer (Persol Systems)',
+    role: 'Mobile Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'Riverpod', 'GoRouter', 'SQLite', 'ML Kit', 'Geolocator', 'OAuth'],
     description:
-      'Logistics driver app for Persol with shift management, biometric enrollment, and trip tracking for field operations.',
+      'Production logistics driver app with shift management, biometric enrollment, and trip tracking for field operations.',
     shortDescription:
       'Enterprise driver app with shifts, biometrics, and background trip tracking.',
     problem:
-      'Logistics operations needed verified driver identity, structured shift workflows, and reliable trip tracking — without drivers juggling paper logs or unsecured personal apps.',
+      'Field logistics teams needed verified driver identity, structured shift workflows, and reliable trip tracking — without paper logs or unsecured personal apps.',
     solution:
       'I built a Flutter driver app with Riverpod state management, biometric enrollment via ML Kit, OAuth integration, and background geolocation for trip lifecycle management.',
     features: [
@@ -115,11 +123,11 @@ export const projects: Project[] = [
       'Trip setup with route and cargo details',
       'Background location tracking during active trips',
       'Offline-capable SQLite storage for field connectivity gaps',
-      'Statistics and performance metrics for supervisors',
-      'OAuth-secured API integration with Persol backend',
+      'Performance metrics for supervisors',
+      'OAuth-secured enterprise API integration',
     ],
     architecture: `graph LR
-  A[Flutter Driver App] --> B[Persol Logistics API]
+  A[Flutter Driver App] --> B[Enterprise API]
   A --> C[(SQLite Local DB)]
   A --> D[ML Kit Biometrics]
   A --> E[Background Geolocator]`,
@@ -130,8 +138,8 @@ export const projects: Project[] = [
       'OAuth/AppAuth enterprise SSO',
     ],
     outcome:
-      'Production enterprise app deployed for Persol logistics teams with biometric accountability and real-time trip visibility.',
-    featured: true,
+      'Production enterprise deployment supporting logistics teams with biometric accountability and trip visibility.',
+    featured: false,
     priority: 2,
     accentColor: '#3b82f6',
     timeline: '4 months',
@@ -139,23 +147,25 @@ export const projects: Project[] = [
   },
   {
     slug: 'crm-consumer',
-    displayName: 'CRM Consumer',
-    category: 'Enterprise Mobile',
+    displayName: 'Taxpayer Services Mobile App',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Mobile Developer (Persol Systems)',
+    role: 'Mobile Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'GoRouter', 'OAuth', 'AppAuth', 'Dio', 'QR', 'Lottie'],
     description:
-      'Consumer-facing CRM app for Ghana\'s tax ecosystem with virtual card and taxpayer self-service features.',
+      'Consumer-facing mobile app for taxpayer self-service, including virtual card features and secure account access.',
     shortDescription:
       'Taxpayer mobile app with virtual card, QR services, and secure OAuth login.',
     problem:
-      'Taxpayers needed mobile access to CRM services — virtual cards, verification, and account management — without visiting physical offices or using desktop-only portals.',
+      'Taxpayers needed mobile access to essential services — virtual cards, verification, and account management — without relying on desktop-only portals or in-person visits.',
     solution:
       'I developed a Flutter consumer app with OAuth-secured authentication, virtual card display, QR-based services, and polished Lottie-driven onboarding flows.',
     features: [
       'Secure OAuth/AppAuth login for taxpayer accounts',
       'Virtual card display with QR code generation',
-      'Taxpayer profile and service request management',
+      'Profile and service request management',
       'QR scanner for document and invoice verification',
       'Lottie animations for onboarding and status feedback',
       'GoRouter-based navigation with deep link support',
@@ -163,10 +173,10 @@ export const projects: Project[] = [
       'Responsive layouts for varied Android device sizes',
     ],
     architecture: `graph LR
-  A[Flutter Consumer App] --> B[CRM Tax API]
+  A[Flutter Consumer App] --> B[Enterprise API]
   A --> C[OAuth / AppAuth]
   A --> D[QR Services]
-  B --> E[(Taxpayer Records)]`,
+  B --> E[(Secure Records)]`,
     technicalHighlights: [
       'OAuth 2.0 with AppAuth',
       'Virtual card + QR generation',
@@ -174,8 +184,9 @@ export const projects: Project[] = [
       'Lottie micro-interactions',
     ],
     outcome:
-      'Production app in Ghana\'s tax ecosystem, giving taxpayers mobile-first access to CRM services.',
-    featured: true,
+      'Production deployment giving taxpayers mobile-first access to core self-service workflows.',
+    featured: false,
+    hidden: true,
     priority: 3,
     accentColor: '#8b5cf6',
     timeline: '5 months',
@@ -219,7 +230,7 @@ export const projects: Project[] = [
     ],
     outcome:
       'Community-facing product designed for churches that need simple, reliable management without enterprise complexity.',
-    featured: true,
+    featured: false,
     priority: 4,
     accentColor: '#f59e0b',
     timeline: '3 months',
@@ -227,19 +238,20 @@ export const projects: Project[] = [
   },
   {
     slug: 'persol-canteen',
-    displayName: 'Persol Canteen',
-    category: 'Enterprise Mobile',
+    displayName: 'Employee Canteen App',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Android Developer (Persol Systems)',
+    role: 'Android Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Kotlin', 'Jetpack Compose', 'Hilt', 'Auth0'],
-    apiUrl: 'https://api-lunch.persol-apps.com/',
     description:
-      'Native Android lunch ordering app for Persol employees with menu browsing, cart, and order history.',
-    shortDescription: 'Native Compose app for employee lunch ordering at Persol.',
+      'Native Android lunch ordering app for employees with menu browsing, cart, and order history.',
+    shortDescription: 'Native Compose app for employee meal ordering.',
     problem:
-      'Employees needed a fast, reliable way to order lunch without queues or manual cash handling at the canteen.',
+      'Employees needed a fast, reliable way to order meals without queues or manual cash handling.',
     solution:
-      'Built a native Kotlin/Compose app with Hilt DI, Auth0 authentication, and integration with the Persol lunch API.',
+      'Built a native Kotlin/Compose app with Hilt DI, Auth0 authentication, and integration with a secure enterprise ordering API.',
     features: [
       'Daily menu browsing with categories',
       'Cart and checkout flow',
@@ -249,11 +261,11 @@ export const projects: Project[] = [
       'Hilt dependency injection',
     ],
     architecture: `graph LR
-  A[Kotlin Compose App] --> B[Lunch API]
+  A[Kotlin Compose App] --> B[Enterprise API]
   A --> C[Auth0]
-  B --> D[(Order DB)]`,
+  B --> D[(Order Store)]`,
     technicalHighlights: ['Jetpack Compose', 'Hilt DI', 'Auth0 integration'],
-    outcome: 'Production app used daily by Persol employees for canteen ordering.',
+    outcome: 'Production app used daily for internal employee meal ordering.',
     featured: false,
     priority: 5,
     accentColor: '#ef4444',
@@ -261,32 +273,33 @@ export const projects: Project[] = [
   },
   {
     slug: 'visitor-management-android',
-    displayName: 'Visitor Management System',
-    category: 'Enterprise Mobile',
+    displayName: 'Facility Visitor Check-In',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Android Developer (Persol Systems)',
+    role: 'Android Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Kotlin', 'Jetpack Compose', 'Hilt', 'Fingerprint'],
-    apiUrl: 'https://vms-api.persol-apps.com/',
     description:
-      'Android visitor management app with check-in, badge printing, and fingerprint verification for secure facilities.',
+      'Android visitor management app with check-in workflows and fingerprint verification for secure facilities.',
     shortDescription: 'Secure visitor check-in with biometric verification.',
     problem:
       'Facilities needed digitized visitor logs with identity verification beyond paper sign-in sheets.',
     solution:
-      'Native Android app with Compose UI, fingerprint capture, and real-time sync with the VMS API.',
+      'Native Android app with Compose UI, fingerprint capture, and real-time sync with a secure enterprise API.',
     features: [
       'Visitor registration and check-in',
       'Fingerprint biometric capture',
       'Host notification on arrival',
-      'Badge and visit history',
+      'Visit history tracking',
       'Hilt-powered modular architecture',
     ],
     architecture: `graph LR
-  A[VMS Android] --> B[VMS API]
+  A[Check-In App] --> B[Enterprise API]
   A --> C[Fingerprint SDK]
   B --> D[(Visitor Records)]`,
     technicalHighlights: ['Fingerprint biometrics', 'Compose UI', 'Enterprise API sync'],
-    outcome: 'Deployed for Persol facility visitor management.',
+    outcome: 'Production deployment for secure facility visitor management.',
     featured: false,
     priority: 6,
     accentColor: '#06b6d4',
@@ -294,29 +307,31 @@ export const projects: Project[] = [
   },
   {
     slug: 'vms-host-app',
-    displayName: 'VMS Host App',
-    category: 'Enterprise Mobile',
+    displayName: 'Visitor Host Portal',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'GetX', 'OAuth', 'Biometrics'],
     description:
-      'Host-facing Flutter app for approving visitors, viewing schedules, and managing facility access.',
+      'Host-facing mobile app for approving visitors, viewing schedules, and managing facility access.',
     shortDescription: 'Host app for visitor approvals and facility access.',
     problem: 'Hosts needed mobile tools to pre-approve visitors and manage access without desktop dependency.',
     solution: 'Flutter app with GetX state management, OAuth login, and biometric quick-unlock.',
     features: [
       'Visitor pre-approval workflow',
-      'Real-time visitor arrival notifications',
+      'Visitor arrival notifications',
       'Biometric app unlock',
       'OAuth enterprise authentication',
       'Host schedule and visit calendar',
     ],
     architecture: `graph LR
-  A[Flutter Host App] --> B[VMS API]
+  A[Flutter Host App] --> B[Enterprise API]
   A --> C[Biometrics]
   A --> D[GetX State]`,
     technicalHighlights: ['GetX architecture', 'OAuth', 'Biometric unlock'],
-    outcome: 'Production companion to the VMS Android check-in app.',
+    outcome: 'Production companion app for host-side visitor management workflows.',
     featured: false,
     priority: 7,
     accentColor: '#14b8a6',
@@ -324,10 +339,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'erdms-approval',
-    displayName: 'ERDMS Approval Mobile',
-    category: 'Enterprise Mobile',
+    displayName: 'Document Approval Mobile',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'GoRouter', 'OAuth', 'SQLite', 'Workmanager', 'QR'],
     description:
       'Mobile approval workflow app for document review with offline queueing and QR verification.',
@@ -342,22 +359,25 @@ export const projects: Project[] = [
       'GoRouter navigation with deep links',
     ],
     architecture: `graph LR
-  A[Approval App] --> B[ERDMS API]
+  A[Approval App] --> B[Enterprise API]
   A --> C[(SQLite Queue)]
   A --> D[Workmanager Sync]`,
     technicalHighlights: ['Offline-first SQLite', 'Workmanager sync', 'QR document linking'],
-    outcome: 'Enterprise approval workflows accessible from mobile devices.',
+    outcome: 'Production mobile workflows for enterprise document approvals.',
     featured: false,
+    hidden: true,
     priority: 8,
     accentColor: '#6366f1',
     year: '2025',
   },
   {
     slug: 'vehicle-management',
-    displayName: 'Vehicle Management System',
-    category: 'Enterprise Mobile',
+    displayName: 'Fleet Management Mobile',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'GoRouter', 'SQLite', 'OAuth', 'Lottie'],
     description:
       'Fleet and vehicle tracking app for assignments, maintenance logs, and driver accountability.',
@@ -372,11 +392,11 @@ export const projects: Project[] = [
       'Lottie loading and status feedback',
     ],
     architecture: `graph LR
-  A[Vehicle App] --> B[Fleet API]
+  A[Vehicle App] --> B[Enterprise API]
   A --> C[(SQLite)]
-  B --> D[(Fleet DB)]`,
+  B --> D[(Fleet Store)]`,
     technicalHighlights: ['SQLite offline cache', 'OAuth', 'GoRouter'],
-    outcome: 'Production fleet tool for Persol vehicle operations.',
+    outcome: 'Production fleet tool supporting vehicle assignment and maintenance workflows.',
     featured: false,
     priority: 9,
     accentColor: '#f97316',
@@ -384,29 +404,31 @@ export const projects: Project[] = [
   },
   {
     slug: 'crm-manufacturer',
-    displayName: 'CRM Manufacturer 2025',
-    category: 'Enterprise Mobile',
+    displayName: 'Manufacturer Inventory Mobile',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'RFID', 'OAuth'],
     description:
-      'Manufacturer-facing CRM app with RFID tag scanning for inventory and tax compliance workflows.',
-    shortDescription: 'RFID-powered manufacturer CRM for inventory and compliance.',
-    problem: 'Manufacturers needed RFID-based tracking integrated with Ghana\'s tax CRM ecosystem.',
+      'Manufacturer-facing mobile app with RFID tag scanning for inventory and compliance workflows.',
+    shortDescription: 'RFID-powered inventory app for manufacturer compliance workflows.',
+    problem: 'Manufacturers needed RFID-based tracking integrated with regulated inventory and compliance systems.',
     solution: 'Flutter app with TSL RFID plugin integration, OAuth auth, and manufacturer-specific workflows.',
     features: [
       'RFID tag scanning via TSL plugin',
       'Inventory batch registration',
-      'OAuth-secured CRM API integration',
+      'OAuth-secured enterprise API integration',
       'Manufacturer dashboard and reports',
       'Offline scan buffering',
     ],
     architecture: `graph LR
-  A[Manufacturer App] --> B[CRM API]
+  A[Manufacturer App] --> B[Enterprise API]
   A --> C[RFID TSL Plugin]
-  B --> D[(Inventory DB)]`,
+  B --> D[(Inventory Store)]`,
     technicalHighlights: ['RFID TSL integration', 'OAuth', 'Batch inventory workflows'],
-    outcome: 'Production manufacturer tool in the Ghana tax CRM ecosystem.',
+    outcome: 'Production manufacturer tool supporting inventory and compliance operations.',
     featured: false,
     priority: 10,
     accentColor: '#a855f7',
@@ -414,16 +436,18 @@ export const projects: Project[] = [
   },
   {
     slug: 'evat-invoice-verification',
-    displayName: 'Mobile Invoicing Verification',
-    category: 'Enterprise Mobile',
+    displayName: 'Invoice Verification Mobile',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'QR Scanner', 'SQLite', 'Encryption'],
     description:
-      'eVAT invoice verification app with QR scanning, local encrypted storage, and offline validation.',
-    shortDescription: 'QR-based eVAT invoice verification with encrypted local storage.',
-    problem: 'Field agents and businesses needed to verify invoice authenticity quickly without network dependency.',
-    solution: 'Flutter app with QR scanner, encrypted SQLite storage, and sync with eVAT verification services.',
+      'Invoice verification app with QR scanning, local encrypted storage, and offline validation.',
+    shortDescription: 'QR-based invoice verification with encrypted local storage.',
+    problem: 'Field teams needed to verify invoice authenticity quickly, including in low-connectivity environments.',
+    solution: 'Flutter app with QR scanner, encrypted SQLite storage, and sync with enterprise verification services.',
     features: [
       'QR invoice scanning and validation',
       'Encrypted local invoice cache',
@@ -432,11 +456,11 @@ export const projects: Project[] = [
       'Sync when connectivity returns',
     ],
     architecture: `graph LR
-  A[Verification App] --> B[eVAT API]
+  A[Verification App] --> B[Enterprise API]
   A --> C[(Encrypted SQLite)]
   A --> D[QR Scanner]`,
     technicalHighlights: ['Encrypted SQLite', 'QR verification', 'Offline validation'],
-    outcome: 'Production eVAT tool supporting Ghana tax compliance in the field.',
+    outcome: 'Production field tool supporting invoice verification and compliance workflows.',
     featured: false,
     priority: 11,
     accentColor: '#10b981',
@@ -444,43 +468,48 @@ export const projects: Project[] = [
   },
   {
     slug: 'evat-vsdc-extension',
-    displayName: 'eVAT VSDC Extension',
-    category: 'Library / Extension',
+    displayName: 'Tax Compliance Extension Library',
+    category: 'Production · Employer library',
     categories: ['Backend', 'Enterprise'],
-    role: 'Backend Developer (Persol Systems)',
+    role: 'Backend Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Kotlin/JVM', 'Ktor', 'Encryption'],
     description:
-      'JVM extension library for Virtual Sales Data Controller integration with encrypted communication.',
-    shortDescription: 'Kotlin/Ktor VSDC extension with encrypted comms.',
-    problem: 'POS systems needed a secure, reusable VSDC integration layer for eVAT compliance.',
-    solution: 'Kotlin/JVM library using Ktor for HTTP and encryption for sensitive tax data transmission.',
+      'JVM extension library for sales data controller integration with encrypted communication.',
+    shortDescription: 'Kotlin/Ktor compliance extension with encrypted comms.',
+    problem: 'POS systems needed a secure, reusable integration layer for regulated sales data reporting.',
+    solution: 'Kotlin/JVM library using Ktor for HTTP and encryption for sensitive data transmission.',
     features: [
-      'VSDC protocol implementation',
+      'Regulated protocol implementation',
       'Encrypted request/response handling',
       'Ktor HTTP client integration',
       'Reusable JVM library for POS integrators',
     ],
     architecture: `graph LR
-  A[POS System] --> B[VSDC Extension]
-  B --> C[eVAT Gateway]
+  A[POS System] --> B[Compliance Extension]
+  B --> C[Enterprise Gateway]
   B --> D[Encryption Layer]`,
     technicalHighlights: ['Ktor HTTP', 'Encryption at rest and transit', 'JVM library'],
-    outcome: 'Shared library powering eVAT integrations across Persol tax products.',
+    outcome: 'Shared library supporting compliance integrations across enterprise tax products.',
     featured: false,
+    hidden: true,
     priority: 12,
     accentColor: '#64748b',
     year: '2025',
   },
   {
     slug: 'pama-attendance',
-    displayName: 'Attendance Mobile (PAMA)',
-    category: 'Enterprise Mobile',
+    displayName: 'Workforce Attendance Mobile',
+    category: 'Production · Employer mobile',
     categories: ['Mobile', 'Enterprise'],
-    role: 'Flutter Developer (Persol Systems)',
+    role: 'Flutter Developer · Persol Systems',
+    scopeLabel: 'Production · Employer project',
+    employerProject: true,
     stack: ['Flutter', 'Firebase', 'Geolocation', 'Workmanager'],
     description:
-      'Workforce attendance app with geofenced check-in, Firebase sync, and background location validation.',
-    shortDescription: 'Geofenced workforce attendance with Firebase backend.',
+      'Workforce attendance app with geofenced check-in, cloud sync, and background location validation.',
+    shortDescription: 'Geofenced workforce attendance with cloud backend.',
     problem: 'Organizations needed verifiable attendance with location proof, not just manual sign-in.',
     solution: 'Flutter app with geolocation validation, Firebase Firestore sync, and Workmanager for background tasks.',
     features: [
@@ -491,11 +520,11 @@ export const projects: Project[] = [
       'Admin override and exception handling',
     ],
     architecture: `graph LR
-  A[PAMA App] --> B[Firebase]
+  A[Attendance App] --> B[Firebase]
   A --> C[Geolocation]
   A --> D[Workmanager]`,
     technicalHighlights: ['Geofencing', 'Firebase', 'Background Workmanager'],
-    outcome: 'Enterprise attendance solution with location-verified check-ins.',
+    outcome: 'Production attendance solution with location-verified check-ins.',
     featured: false,
     priority: 13,
     accentColor: '#0ea5e9',
@@ -723,15 +752,35 @@ export const filterCategories: FilterCategory[] = [
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug)
+  const project = projects.find((p) => p.slug === slug)
+  if (!project || project.hidden) return undefined
+  return project
+}
+
+export function getVisibleProjects(): Project[] {
+  return projects.filter((p) => !p.hidden)
+}
+
+export function getVisibleProjectCount(): number {
+  return getVisibleProjects().length
+}
+
+/** Rounds down for display (e.g. 17 → "15+") while staying below the true count. */
+export function formatProjectCountPlus(count: number): string {
+  if (count <= 1) return `${count}`
+  if (count <= 5) return `${count - 1}+`
+  const rounded = Math.floor(count / 5) * 5
+  return `${rounded}+`
 }
 
 export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured).sort((a, b) => a.priority - b.priority)
+  return getVisibleProjects()
+    .filter((p) => p.featured)
+    .sort((a, b) => a.priority - b.priority)
 }
 
 export function getSortedProjects(): Project[] {
-  return [...projects].sort((a, b) => a.priority - b.priority)
+  return [...getVisibleProjects()].sort((a, b) => a.priority - b.priority)
 }
 
 export function getAdjacentProjects(slug: string): {

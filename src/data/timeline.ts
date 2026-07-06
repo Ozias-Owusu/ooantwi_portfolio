@@ -12,7 +12,7 @@ export const timeline: TimelineEntry[] = [
     title: 'Software Developer',
     org: 'Persol Systems',
     notes:
-      'Enterprise mobile & web — CRM, visitor management, canteen ordering, logistics, and Ghana eVAT systems.',
+      'Enterprise mobile and web products across logistics, tax systems, visitor management, and internal operations. Portfolio entries are summarized at a high level.',
     type: 'work',
   },
   {
