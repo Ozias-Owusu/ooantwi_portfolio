@@ -27,6 +27,9 @@
   --border: rgba(148, 163, 184, 0.15);
   --grid-opacity: 0.04;
   --orb-opacity: 0.35;
+  --bg-tech-opacity: 0.55;
+  --bg-tech-scrim: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+  --bg-tech-scrim-strong: color-mix(in srgb, var(--bg-primary) 88%, transparent);
 }
 
 [data-theme='light'] {
@@ -40,6 +43,9 @@
   --border: rgba(15, 23, 42, 0.1);
   --grid-opacity: 0.06;
   --orb-opacity: 0.2;
+  --bg-tech-opacity: 0.42;
+  --bg-tech-scrim: color-mix(in srgb, var(--bg-primary) 84%, transparent);
+  --bg-tech-scrim-strong: color-mix(in srgb, var(--bg-primary) 92%, transparent);
 }
 
 @layer base {
@@ -102,5 +108,26 @@
 
   .focus-ring {
     @apply outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)];
+  }
+
+  .bg-tech-layer {
+    position: absolute;
+    inset: -12%;
+    background-image: url('/bg-tech.svg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(56px) saturate(1.15);
+    transform: scale(1.08);
+    opacity: var(--bg-tech-opacity);
+    will-change: transform;
+  }
+
+  .bg-tech-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, var(--bg-tech-scrim-strong) 0%, var(--bg-tech-scrim) 42%, var(--bg-tech-scrim-strong) 100%),
+      var(--bg-primary);
+    opacity: 0.94;
   }
 }

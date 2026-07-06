@@ -9,7 +9,9 @@ export default function Layout() {
 
   return (
     <div className="relative flex min-h-screen flex-col">
-      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden>
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
+        <div className="bg-tech-layer" />
+        <div className="bg-tech-scrim" />
         <div
           className="absolute -left-32 top-0 h-96 w-96 rounded-full blur-3xl"
           style={{

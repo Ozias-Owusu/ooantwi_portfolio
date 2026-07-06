@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Owusu Antwi — Full-Stack & Mobile Developer"
+        title="Ozias Owusu-Antwi — Full-Stack & Mobile Developer"
         description={profile.tagline}
         path="/"
       />

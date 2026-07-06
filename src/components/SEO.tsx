@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { profile } from '@/data/profile'
 
 interface SEOProps {
   title: string
@@ -9,7 +10,7 @@ interface SEOProps {
 const SITE_URL = 'https://ooantwi.dev'
 
 export default function SEO({ title, description, path = '' }: SEOProps) {
-  const fullTitle = title.includes('Owusu Antwi') ? title : `${title} | Owusu Antwi`
+  const fullTitle = title.includes(profile.name) ? title : `${title} | ${profile.name}`
   const url = `${SITE_URL}${path}`
 
   useEffect(() => {

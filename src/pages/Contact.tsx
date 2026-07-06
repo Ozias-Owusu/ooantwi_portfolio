@@ -1,4 +1,4 @@
-import { FolderGit2, Globe, Mail, MapPin, Phone } from 'lucide-react'
+import { FolderGit2, Globe, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import SEO from '@/components/SEO'
 import SectionHeading from '@/components/SectionHeading'
 import ContactForm from '@/components/ContactForm'
@@ -32,18 +32,36 @@ export default function Contact() {
                     Direct Contact
                   </h3>
                   <ul className="space-y-4 text-sm">
+                    {profile.emails.map((email) => (
+                      <li key={email}>
+                        <a
+                          href={`mailto:${email}`}
+                          className="focus-ring flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent)]"
+                        >
+                          <Mail size={18} className="shrink-0 text-[var(--accent)]" />
+                          {email}
+                        </a>
+                      </li>
+                    ))}
                     <li>
                       <a
-                        href={`mailto:${profile.email}`}
+                        href={`tel:${profile.phone.replace(/\s/g, '')}`}
                         className="focus-ring flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent)]"
                       >
-                        <Mail size={18} className="shrink-0 text-[var(--accent)]" />
-                        {profile.email}
+                        <Phone size={18} className="shrink-0 text-[var(--accent)]" />
+                        {profile.phone}
                       </a>
                     </li>
-                    <li className="flex items-center gap-3 text-[var(--text-muted)]">
-                      <Phone size={18} className="shrink-0 text-[var(--accent)]" />
-                      {profile.phone}
+                    <li>
+                      <a
+                        href={profile.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="focus-ring flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent)]"
+                      >
+                        <MessageCircle size={18} className="shrink-0 text-[var(--accent)]" />
+                        WhatsApp: {profile.phone}
+                      </a>
                     </li>
                     <li className="flex items-center gap-3 text-[var(--text-muted)]">
                       <MapPin size={18} className="shrink-0 text-[var(--accent)]" />
@@ -81,6 +99,15 @@ export default function Contact() {
                       aria-label="Email"
                     >
                       <Mail size={20} />
+                    </a>
+                    <a
+                      href={profile.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="focus-ring flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                      aria-label="WhatsApp"
+                    >
+                      <MessageCircle size={20} />
                     </a>
                   </div>
                 </div>

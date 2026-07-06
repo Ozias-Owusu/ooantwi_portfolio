@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="45%" stop-color="#0f1f2e"/>
+      <stop offset="100%" stop-color="#122a2f"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="20%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="82%" cy="68%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="55%" cy="15%" r="35%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#94a3b8" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glowA)"/>
+  <rect width="1920" height="1080" fill="url(#glowB)"/>
+  <rect width="1920" height="1080" fill="url(#glowC)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- Circuit traces -->
+  <g stroke="#14b8a6" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <path d="M120 180 H420 V320 H720 V180 H980 V420 H1280 V260 H1560"/>
+    <path d="M200 640 H520 V480 H860 V700 H1180 V560 H1480 V820 H1760"/>
+    <path d="M80 860 H360 V720 H640 V920 H920 V780 H1200 V980 H1680"/>
+  </g>
+
+  <!-- Nodes -->
+  <g fill="#f59e0b" fill-opacity="0.7">
+    <circle cx="420" cy="320" r="8"/>
+    <circle cx="720" cy="180" r="6"/>
+    <circle cx="980" cy="420" r="7"/>
+    <circle cx="520" cy="480" r="6"/>
+    <circle cx="1180" cy="560" r="8"/>
+    <circle cx="360" cy="720" r="5"/>
+    <circle cx="1200" cy="980" r="7"/>
+  </g>
+
+  <!-- Code blocks -->
+  <g font-family="ui-monospace, monospace" font-size="18" fill="#e2e8f0" fill-opacity="0.22">
+    <text x="1320" y="160">const ship = () =&gt; build(product)</text>
+    <text x="1380" y="190">flutter | react | dotnet</text>
+    <text x="180" y="420">async function deploy() { }</text>
+    <text x="220" y="450">// accra · ghana · mobile</text>
+    <text x="1280" y="760">interface Product { impact: true }</text>
+    <text x="1340" y="790">export default portfolio</text>
+  </g>
+
+  <!-- Device / server silhouettes -->
+  <g fill="#1e293b" fill-opacity="0.55" stroke="#64748b" stroke-opacity="0.35">
+    <rect x="250" y="560" width="220" height="140" rx="16"/>
+    <rect x="270" y="580" width="180" height="18" rx="4" fill="#334155" fill-opacity="0.8"/>
+    <rect x="270" y="610" width="120" height="10" rx="3" fill="#475569" fill-opacity="0.7"/>
+    <rect x="270" y="630" width="150" height="10" rx="3" fill="#475569" fill-opacity="0.5"/>
+    <rect x="1450" y="360" width="90" height="160" rx="20"/>
+    <rect x="1465" y="380" width="60" height="8" rx="4" fill="#64748b" fill-opacity="0.5"/>
+    <rect x="1465" y="400" width="60" height="80" rx="8" fill="#0f172a" fill-opacity="0.35"/>
+  </g>
+
+  <!-- Hex accents -->
+  <g stroke="#f59e0b" stroke-opacity="0.2" fill="none" stroke-width="1.5">
+    <polygon points="1680,120 1710,137 1710,171 1680,188 1650,171 1650,137"/>
+    <polygon points="100,300 125,314 125,342 100,356 75,342 75,314"/>
+    <polygon points="860,120 885,134 885,162 860,176 835,162 835,134"/>
+  </g>
+</svg>
