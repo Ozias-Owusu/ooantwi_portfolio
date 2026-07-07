@@ -40,6 +40,14 @@ Companion backend: `github.com/Ozias-Owusu/lendledgerBackend` (ASP.NET Core 8, S
 
 Capture scenes: `landing`, `login`, `dashboard`, `customers`, `ledger`, `insights`, `notifications`, `settings`.
 
+## Frankates Driver (Flutter mobile)
+1. Use `frankatesdeliverymobile` on the `master` branch.
+2. `flutter build web` in that repo (capture mode uses illustrative portfolio mock data).
+3. From the portfolio repo: `npm run capture:frankates-driver`
+4. Screenshots land in `public/projects/frankates-driver/`.
+
+Capture scenes: `splash`, `login`, `home-offline`, `home-online`, `job-assigned`, `job-navigation`, `job-in-transit`, `forgot-password`.
+
 ## Per featured project suggestions
 - Frankates Marketplace: customer storefront, vendor dashboard, delivery tracking map
 - TimeTrakker Logistics: driver dashboard, biometric enrollment, trip tracking

@@ -1060,29 +1060,155 @@ export const projects: Project[] = [
     category: 'Mobile',
     categories: ['Mobile', 'Enterprise'],
     role: 'Lead Developer (Dev\'s Consult)',
-    stack: ['Flutter', 'Riverpod', 'Background location', 'OSRM'],
+    stack: ['Flutter', 'Riverpod', 'GoRouter', 'OSRM', 'Background GPS', 'Dio'],
+    githubUrl: 'https://github.com/Ozias-Owusu/frankatesdeliverymobile',
     description:
-      'Dedicated Flutter driver app for Frankates Marketplace with background GPS and OSRM route navigation.',
-    shortDescription: 'Delivery driver app with background GPS and OSRM routing.',
-    problem: 'Drivers needed a reliable mobile app for accepting deliveries, navigating routes, and updating order status on the move.',
-    solution: 'Flutter app with Riverpod, background location services, and OSRM map integration — companion to the Frankates ecosystem.',
+      'Dedicated Flutter driver app for Frankates Marketplace — online/offline toggles, delivery assignment inbox, live OSRM navigation maps, and pickup-to-delivery status workflows.',
+    shortDescription:
+      'Driver portal with GPS tracking, delivery inbox, and OSRM route maps.',
+    problem:
+      'Delivery drivers needed a reliable mobile app for accepting assignments, navigating routes, and updating order status on the move — without depending on the customer web storefront.',
+    solution:
+      'I built the Frankates Driver app with Riverpod state management, JWT auth, background location heartbeats, and flutter_map + OSRM routing — styled with the Frankates navy-and-blue brand system to match the wider marketplace ecosystem.',
     features: [
-      'Delivery assignment inbox',
-      'Background GPS location updates',
-      'OSRM-powered route navigation',
-      'Order status updates (picked up, en route, delivered)',
-      'Riverpod state management',
+      'Branded splash and driver sign-in portal',
+      'Online/offline toggle with location permission gating',
+      'Active delivery inbox with search and status filters',
+      'Job detail with accept, pickup, and deliver actions',
+      'Live OSRM route maps with courier position tracking',
+      'Customer call, SMS, and address copy shortcuts',
+      'Order items breakdown and ETA summaries',
+      'Background GPS heartbeats while online or in transit',
+      'Riverpod + GoRouter architecture',
     ],
     architecture: `graph LR
-  A[Driver App] --> B[Marketplace API]
-  A --> C[OSRM Maps]
-  A --> D[Background GPS]`,
-    technicalHighlights: ['Background location', 'OSRM routing', 'Riverpod'],
-    outcome: 'Production driver companion for the Frankates Marketplace ecosystem.',
+  A[Flutter Driver App] --> B[Marketplace API]
+  A --> C[OSRM Routing]
+  A --> D[Background GPS]
+  B --> E[(Order Records)]`,
+    technicalHighlights: [
+      'Riverpod state management',
+      'GoRouter auth redirects',
+      'OSRM live route polylines',
+      'Background location tracking',
+      'Material 3 navy brand system',
+    ],
+    outcome:
+      'Production driver companion for the Frankates Marketplace ecosystem — built alongside the customer storefront and vendor portals.',
     featured: false,
     priority: 16,
-    accentColor: '#22c55e',
+    accentColor: '#2563EB',
+    timeline: '4 months',
     year: '2025',
+    coverImage: '/projects/frankates-driver/04-driver-dashboard.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#0B1A3F',
+      secondary: '#2563EB',
+      accent: '#059669',
+    },
+    screenshots: [
+      {
+        src: '/projects/frankates-driver/01-splash.png',
+        alt: 'Frankates Driver splash screen with navy gradient and shipping icon',
+        caption: 'Splash — Frankates driver branding',
+      },
+      {
+        src: '/projects/frankates-driver/02-login.png',
+        alt: 'Frankates Driver login screen with email and password fields',
+        caption: 'Sign-in — driver portal authentication',
+      },
+      {
+        src: '/projects/frankates-driver/03-home-offline.png',
+        alt: 'Frankates Driver home screen in offline mode',
+        caption: 'Offline — driver availability toggle',
+      },
+      {
+        src: '/projects/frankates-driver/04-driver-dashboard.png',
+        alt: 'Frankates Driver dashboard with active deliveries and stats',
+        caption: 'Dashboard — active delivery inbox',
+      },
+      {
+        src: '/projects/frankates-driver/05-job-assigned.png',
+        alt: 'Frankates Driver job detail for a newly assigned delivery',
+        caption: 'Assignment — accept new delivery',
+      },
+      {
+        src: '/projects/frankates-driver/06-job-navigation.png',
+        alt: 'Frankates Driver navigation map with OSRM route to customer',
+        caption: 'Navigation — OSRM route map',
+      },
+      {
+        src: '/projects/frankates-driver/07-job-in-transit.png',
+        alt: 'Frankates Driver in-transit job with order items and live map',
+        caption: 'In transit — pickup confirmed',
+      },
+      {
+        src: '/projects/frankates-driver/08-forgot-password.png',
+        alt: 'Frankates Driver forgot password reset screen',
+        caption: 'Account recovery — password reset',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Driver Operations',
+        subtitle: 'Daily delivery workflows on the road',
+        items: [
+          {
+            src: '/projects/frankates-driver/04-driver-dashboard.png',
+            alt: 'Frankates Driver dashboard with active deliveries and stats',
+            caption: 'Delivery inbox',
+          },
+          {
+            src: '/projects/frankates-driver/05-job-assigned.png',
+            alt: 'Frankates Driver job detail for a newly assigned delivery',
+            caption: 'New assignment',
+          },
+          {
+            src: '/projects/frankates-driver/06-job-navigation.png',
+            alt: 'Frankates Driver navigation map with OSRM route to customer',
+            caption: 'Route navigation',
+          },
+          {
+            src: '/projects/frankates-driver/07-job-in-transit.png',
+            alt: 'Frankates Driver in-transit job with order items and live map',
+            caption: 'In-transit delivery',
+          },
+        ],
+      },
+      {
+        title: 'Authentication',
+        subtitle: 'Secure entry for marketplace drivers',
+        items: [
+          {
+            src: '/projects/frankates-driver/02-login.png',
+            alt: 'Frankates Driver login screen with email and password fields',
+            caption: 'Driver sign-in',
+          },
+          {
+            src: '/projects/frankates-driver/08-forgot-password.png',
+            alt: 'Frankates Driver forgot password reset screen',
+            caption: 'Password reset',
+          },
+        ],
+      },
+      {
+        title: 'Brand & Availability',
+        subtitle: 'Frankates identity and online status',
+        items: [
+          {
+            src: '/projects/frankates-driver/01-splash.png',
+            alt: 'Frankates Driver splash screen with navy gradient and shipping icon',
+            caption: 'Launch screen',
+          },
+          {
+            src: '/projects/frankates-driver/03-home-offline.png',
+            alt: 'Frankates Driver home screen in offline mode',
+            caption: 'Offline mode',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'bridgecare-face-poc',

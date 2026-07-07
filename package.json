@@ -12,7 +12,8 @@
     "capture:frankates:auth": "node scripts/capture-frankates-authenticated.mjs",
     "capture:churchos": "node scripts/capture-churchos-screenshots.mjs",
     "capture:vms-host": "node scripts/capture-vms-host-screenshots.mjs",
-    "capture:lend-ledger": "node scripts/capture-lend-ledger-screenshots.mjs"
+    "capture:lend-ledger": "node scripts/capture-lend-ledger-screenshots.mjs",
+    "capture:frankates-driver": "node scripts/capture-frankates-driver-screenshots.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
