@@ -14,6 +14,14 @@ Use these steps when you want to replace the generated placeholder visuals with 
    - public/projects/{slug}-cover.svg
 6. For case-study galleries, you can extend the data model to include dedicated screenshots.
 
+## ChurchOS (Flutter mobile)
+1. Clone `church_os_mobile_app` on the `test` branch.
+2. `flutter build web` in that repo.
+3. From the portfolio repo: `npm run capture:churchos`
+4. Screenshots land in `public/projects/churchos/`.
+
+The web build supports `?capture=<scene>` query params for reliable screenshots (e.g. `member-home`, `admin-attendance`). Demo logins: `member@churchos.demo` / `admin@churchos.demo` with password `password123`.
+
 ## Per featured project suggestions
 - Frankates Marketplace: customer storefront, vendor dashboard, delivery tracking map
 - TimeTrakker Logistics: driver dashboard, biometric enrollment, trip tracking

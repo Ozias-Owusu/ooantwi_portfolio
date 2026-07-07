@@ -7,6 +7,7 @@ import TechBadge from './TechBadge'
 import DeviceMockup from './DeviceMockup'
 import ScrollReveal from './ScrollReveal'
 import EmployerProjectNotice from './EmployerProjectNotice'
+import ScreenshotGallery from './ScreenshotGallery'
 
 interface CaseStudyLayoutProps {
   project: Project
@@ -80,7 +81,7 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
               </div>
             )}
 
-            {(project.liveUrl || (project.apiUrl && !project.employerProject)) && (
+            {(project.liveUrl || project.githubUrl || (project.apiUrl && !project.employerProject)) && (
               <div className="mt-6 flex flex-wrap gap-3">
                 {project.liveUrl && (
                   <a
@@ -91,6 +92,16 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                   >
                     <ExternalLink size={16} />
                     Live Demo
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring inline-flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2 text-sm text-[var(--text-primary)] hover:border-[var(--accent)]"
+                  >
+                    View on GitHub
                   </a>
                 )}
                 {project.apiUrl && !project.employerProject && (
@@ -108,14 +119,36 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
           </ScrollReveal>
 
           <ScrollReveal className="mt-12">
-            <div className="overflow-hidden rounded-3xl border border-[var(--border)]">
-              {project.screenshots?.[0] ? (
-                <img
-                  src={project.screenshots[0].src}
-                  alt={project.screenshots[0].alt}
-                  loading="lazy"
-                  className="w-full object-cover object-top"
-                />
+            <div
+              className="overflow-hidden rounded-3xl border"
+              style={
+                project.brandTheme
+                  ? {
+                      borderColor: `${project.brandTheme.primary}40`,
+                      boxShadow: `0 24px 80px -24px ${project.brandTheme.primary}55`,
+                    }
+                  : undefined
+              }
+            >
+              {project.coverImage || project.screenshots?.[0] ? (
+                <div className="relative">
+                  {project.brandTheme && (
+                    <div
+                      className="absolute inset-0 opacity-20"
+                      style={{
+                        background: `linear-gradient(135deg, ${project.brandTheme.primary}, ${project.brandTheme.secondary})`,
+                      }}
+                    />
+                  )}
+                  <img
+                    src={project.coverImage ?? project.screenshots![0].src}
+                    alt={project.coverImage ? `${project.displayName} cover` : project.screenshots![0].alt}
+                    loading="lazy"
+                    className={`relative w-full object-cover object-top ${
+                      project.screenshotLayout === 'mobile' ? 'mx-auto max-w-sm' : ''
+                    }`}
+                  />
+                </div>
               ) : (
                 <DeviceMockup variant={project.slug} />
               )}
@@ -181,26 +214,7 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
                   </p>
                 )}
                 {project.screenshots?.length ? (
-                  <div className="mt-6 grid gap-6">
-                    {project.screenshots.map((shot) => (
-                      <figure
-                        key={shot.src}
-                        className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]"
-                      >
-                        <img
-                          src={shot.src}
-                          alt={shot.alt}
-                          loading="lazy"
-                          className="w-full object-cover object-top"
-                        />
-                        {shot.caption && (
-                          <figcaption className="border-t border-[var(--border)] px-4 py-3 text-sm text-[var(--text-muted)]">
-                            {shot.caption}
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
-                  </div>
+                  <ScreenshotGallery project={project} />
                 ) : (
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <DeviceMockup variant={project.slug} type="browser" className="rounded-2xl border border-[var(--border)] overflow-hidden" />

@@ -13,6 +13,18 @@ export interface ProjectScreenshot {
   caption?: string
 }
 
+export interface ProjectBrandTheme {
+  primary: string
+  secondary: string
+  accent: string
+}
+
+export interface ProjectScreenshotSection {
+  title: string
+  subtitle?: string
+  items: ProjectScreenshot[]
+}
+
 export interface Project {
   slug: string
   displayName: string
@@ -28,6 +40,9 @@ export interface Project {
   repos?: string[]
   coverImage?: string
   screenshots?: ProjectScreenshot[]
+  screenshotLayout?: 'mobile' | 'desktop'
+  brandTheme?: ProjectBrandTheme
+  screenshotSections?: ProjectScreenshotSection[]
   description: string
   shortDescription: string
   problem: string
@@ -264,43 +279,166 @@ export const projects: Project[] = [
     category: 'Personal / Community',
     categories: ['Mobile', 'Personal'],
     role: 'Solo Developer',
-    stack: ['Flutter', 'Provider', 'QR', 'Local-first storage'],
+    stack: ['Flutter', 'Provider', 'Google Fonts', 'QR', 'SharedPreferences'],
+    githubUrl: 'https://github.com/Ozias-Owusu/church_os_mobile_app',
     description:
-      'Church management app with admin and member experiences for attendance, giving, events, and membership.',
+      'A beautifully crafted church management app with separate member and admin experiences — attendance, giving, events, prayer, and visitor follow-up in one local-first mobile product.',
     shortDescription:
-      'Community church app for attendance, giving, events, and member management.',
+      'Local-first church app with member engagement, QR check-in, giving, and admin operations.',
     problem:
       'Many churches in Ghana still track attendance, offerings, and events on paper or scattered WhatsApp groups — making reporting slow and member engagement inconsistent.',
     solution:
-      'I built ChurchOS as a local-first Flutter app with separate admin and member flows: QR check-in, digital giving records, event calendars, and member directories.',
+      'I designed and built ChurchOS as a local-first Flutter app with role-based shells for members and leaders: QR check-in, digital giving records, event calendars, prayer requests, and admin dashboards — all styled with a warm indigo-to-teal brand system.',
     features: [
-      'Member home with upcoming events and announcements',
-      'QR-based attendance check-in',
-      'Digital giving tracking and history',
-      'Event creation and RSVP for admins',
-      'Member directory with role-based visibility',
-      'Admin dashboard for attendance and giving reports',
-      'Local-first storage for offline church sessions',
-      'Provider state management for clean separation of concerns',
+      'Member home with engagement score, announcements, and next-event highlights',
+      'QR-based attendance check-in and digital member ID on profile',
+      'Giving flow with tithe/offering categories and Mobile Money-ready UX',
+      'Events, prayer requests, and member profile stats',
+      'Admin overview with members, giving, attendance, and visitor metrics',
+      'Attendance quick check-in and finance recording for leaders',
+      'Member directory and visitor follow-up workflows',
+      'Local-first storage with Provider state management',
     ],
     architecture: `graph LR
-  A[Member App] --> C[Local Storage]
-  B[Admin App] --> C
+  A[Member Shell] --> C[SharedPreferences]
+  B[Admin Shell] --> C
   B --> D[QR Attendance]
-  A --> D`,
+  A --> D
+  A --> E[Prayer & Giving]
+  B --> F[Finance & Visitors]`,
     technicalHighlights: [
       'Local-first architecture',
       'QR attendance check-in',
-      'Dual admin/member experiences',
+      'Dual member/admin shells',
+      'Plus Jakarta Sans brand system',
       'Provider pattern state management',
     ],
     outcome:
-      'Community-facing product designed for churches that need simple, reliable management without enterprise complexity.',
+      'A community-facing product designed for churches that need simple, reliable management without enterprise complexity — polished enough for real ministry use.',
     featured: false,
     priority: 4,
-    accentColor: '#f59e0b',
+    accentColor: '#4338CA',
     timeline: '3 months',
     year: '2024',
+    coverImage: '/projects/churchos/02-member-home.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#4338CA',
+      secondary: '#0D9488',
+      accent: '#D4A853',
+    },
+    screenshots: [
+      {
+        src: '/projects/churchos/01-login.png',
+        alt: 'ChurchOS login screen with indigo gradient background and demo accounts',
+        caption: 'Sign-in — gradient brand shell with demo roles',
+      },
+      {
+        src: '/projects/churchos/02-member-home.png',
+        alt: 'ChurchOS member home with engagement score, giving stats, and announcements',
+        caption: 'Member home — engagement and next event',
+      },
+      {
+        src: '/projects/churchos/03-member-events.png',
+        alt: 'ChurchOS member events list with upcoming church services',
+        caption: 'Events — upcoming services and retreats',
+      },
+      {
+        src: '/projects/churchos/04-member-giving.png',
+        alt: 'ChurchOS digital giving screen with tithe and offering options',
+        caption: 'Giving — tithe, offering, and history',
+      },
+      {
+        src: '/projects/churchos/05-member-profile.png',
+        alt: 'ChurchOS member profile with QR digital ID and engagement stats',
+        caption: 'Profile — digital member ID with QR check-in',
+      },
+      {
+        src: '/projects/churchos/06-admin-overview.png',
+        alt: 'ChurchOS admin dashboard with platform metrics and charts',
+        caption: 'Admin overview — church-wide metrics',
+      },
+      {
+        src: '/projects/churchos/07-admin-attendance.png',
+        alt: 'ChurchOS admin attendance check-in and recent records',
+        caption: 'Attendance — quick check-in and QR records',
+      },
+      {
+        src: '/projects/churchos/08-admin-finance.png',
+        alt: 'ChurchOS admin finance screen for recording giving transactions',
+        caption: 'Finance — record tithes and offerings',
+      },
+      {
+        src: '/projects/churchos/09-admin-members.png',
+        alt: 'ChurchOS admin member directory and roster management',
+        caption: 'Members — roster and ministry assignments',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Member Experience',
+        subtitle: 'Engagement-first flows for everyday church life',
+        items: [
+          {
+            src: '/projects/churchos/02-member-home.png',
+            alt: 'ChurchOS member home with engagement score, giving stats, and announcements',
+            caption: 'Home dashboard',
+          },
+          {
+            src: '/projects/churchos/03-member-events.png',
+            alt: 'ChurchOS member events list with upcoming church services',
+            caption: 'Events calendar',
+          },
+          {
+            src: '/projects/churchos/04-member-giving.png',
+            alt: 'ChurchOS digital giving screen with tithe and offering options',
+            caption: 'Digital giving',
+          },
+          {
+            src: '/projects/churchos/05-member-profile.png',
+            alt: 'ChurchOS member profile with QR digital ID and engagement stats',
+            caption: 'Profile & QR ID',
+          },
+        ],
+      },
+      {
+        title: 'Admin Operations',
+        subtitle: 'Tools for pastors, ushers, and finance teams',
+        items: [
+          {
+            src: '/projects/churchos/06-admin-overview.png',
+            alt: 'ChurchOS admin dashboard with platform metrics and charts',
+            caption: 'Overview dashboard',
+          },
+          {
+            src: '/projects/churchos/07-admin-attendance.png',
+            alt: 'ChurchOS admin attendance check-in and recent records',
+            caption: 'Attendance check-in',
+          },
+          {
+            src: '/projects/churchos/08-admin-finance.png',
+            alt: 'ChurchOS admin finance screen for recording giving transactions',
+            caption: 'Finance recording',
+          },
+          {
+            src: '/projects/churchos/09-admin-members.png',
+            alt: 'ChurchOS admin member directory and roster management',
+            caption: 'Member directory',
+          },
+        ],
+      },
+      {
+        title: 'Authentication',
+        subtitle: 'Role-based entry for members and leaders',
+        items: [
+          {
+            src: '/projects/churchos/01-login.png',
+            alt: 'ChurchOS login screen with indigo gradient background and demo accounts',
+            caption: 'Branded sign-in',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'persol-canteen',
