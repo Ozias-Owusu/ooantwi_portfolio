@@ -25,7 +25,7 @@ export const timeline: TimelineEntry[] = [
   },
   {
     period: '2024',
-    title: 'BSc Computer Science',
+    title: 'BSc Computer Engineering',
     org: 'Ghana Communication Technology University (GCTU)',
     notes:
       'Focused on software engineering, mobile development, and building practical systems for real-world use.',

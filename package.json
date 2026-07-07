@@ -17,7 +17,8 @@
     "capture:whatsapp-clone": "node scripts/capture-whatsapp-clone-screenshots.mjs",
     "capture:hostelhub-mobile": "node scripts/capture-hostelhub-mobile-screenshots.mjs",
     "capture:hostelhub-web": "node scripts/capture-hostelhub-web-screenshots.mjs",
-    "capture:hostelhub": "npm run capture:hostelhub-mobile && npm run capture:hostelhub-web"
+    "capture:hostelhub": "npm run capture:hostelhub-mobile && npm run capture:hostelhub-web",
+    "generate:resume": "node scripts/generate-resume.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

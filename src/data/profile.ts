@@ -12,10 +12,11 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/owusu-ozias-baa572207',
   github: 'https://github.com/Ozias-Owusu',
   resumePath: '/resume.pdf',
+  resumeFileName: 'Ozias-Owusu-Antwi-Resume.pdf',
   heroHeadline: 'I build products that reach real people.',
   heroSubhead:
     'Full-stack & mobile developer in Ghana — React, Flutter, ASP.NET Core, and Kotlin for enterprise teams and local communities.',
-  about: `I am **Ozias Owusu-Antwi**, a software developer based in Accra, Ghana. I work at **Persol Systems**, where I build production mobile and backend systems for enterprise teams, and I am a graduate of **Ghana Communication Technology University (GCTU)**. Alongside my day job, I lead **Dev's Consult** — an online developer group that takes on client projects and ships real products end to end.
+  about: `I am **Ozias Owusu-Antwi**, a software developer based in Accra, Ghana. I work at **Persol Systems**, where I build production mobile and backend systems for enterprise teams, and I hold a **BSc in Computer Engineering** from **Ghana Communication Technology University (GCTU)**. Alongside my day job, I lead **Dev's Consult** — an online developer group that takes on client projects and ships real products end to end.
 
 My work sits at the intersection of community impact and serious engineering. I care about building tools that reach people who are often left out of modern tech: local vendors, schools, churches, field workers, and small businesses that need reliable software without enterprise complexity. That mindset shaped products like **Frankates Marketplace**, where vendors moved from foot traffic alone to reaching customers across the city.
 

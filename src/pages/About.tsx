@@ -82,7 +82,7 @@ export default function About() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={profile.resumePath}
-                download
+                download={profile.resumeFileName}
                 className="focus-ring inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] px-5 py-2.5 text-sm font-semibold text-[#0a0f14]"
               >
                 <Download size={16} />
