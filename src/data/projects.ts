@@ -119,6 +119,11 @@ export const projects: Project[] = [
         caption: 'Frankates Mart — customer storefront',
       },
       {
+        src: '/projects/frankates-marketplace/08b-product-detail.png',
+        alt: 'Product detail page with images, pricing, variants, and add-to-cart actions',
+        caption: 'Product detail — variants, pricing, and cart actions',
+      },
+      {
         src: '/projects/frankates-marketplace/10-shop-checkout.png',
         alt: 'Frankates Mart multi-step checkout with delivery options and Ghana VAT',
         caption: 'Checkout — delivery, tax, and MoMo-ready payments',
@@ -139,9 +144,19 @@ export const projects: Project[] = [
         caption: 'Vendor analytics and performance insights',
       },
       {
+        src: '/projects/frankates-marketplace/16-vendor-inventory.png',
+        alt: 'Vendor inventory management with stock levels, batches, and product listings',
+        caption: 'Vendor inventory — stock, batches, and listings',
+      },
+      {
         src: '/projects/frankates-marketplace/17-admin-dashboard.png',
         alt: 'Super admin dashboard with platform revenue, vendors, and orders overview',
         caption: 'Super admin — platform-wide operations',
+      },
+      {
+        src: '/projects/frankates-marketplace/18-admin-orders.png',
+        alt: 'Super admin order management with status filters and fulfillment oversight',
+        caption: 'Admin orders — platform-wide fulfillment oversight',
       },
       {
         src: '/projects/frankates-marketplace/20-driver-dashboard.png',
