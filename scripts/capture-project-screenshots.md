@@ -30,6 +30,16 @@ The web build supports `?capture=<scene>` query params for reliable screenshots 
 
 Capture scenes: `onboarding`, `home`, `pending`, `today`, `past`, `notifications`, `profile`, `security`.
 
+## Lend Ledger (Flutter + ASP.NET Core)
+1. Use `lend_ledger` on the `test` branch.
+2. `flutter build web` in that repo (capture mode uses illustrative portfolio mock data — no SQL Server required).
+3. From the portfolio repo: `npm run capture:lend-ledger`
+4. Screenshots land in `public/projects/lend-ledger/`.
+
+Companion backend: `github.com/Ozias-Owusu/lendledgerBackend` (ASP.NET Core 8, SQL Server, JWT).
+
+Capture scenes: `landing`, `login`, `dashboard`, `customers`, `ledger`, `insights`, `notifications`, `settings`.
+
 ## Per featured project suggestions
 - Frankates Marketplace: customer storefront, vendor dashboard, delivery tracking map
 - TimeTrakker Logistics: driver dashboard, biometric enrollment, trip tracking

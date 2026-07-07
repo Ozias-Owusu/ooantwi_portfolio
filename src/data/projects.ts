@@ -894,32 +894,165 @@ export const projects: Project[] = [
     slug: 'lend-ledger',
     displayName: 'Lend Ledger',
     category: 'Personal',
-    categories: ['Mobile', 'Personal'],
+    categories: ['Mobile', 'Personal', 'Backend'],
     role: 'Solo Developer',
-    stack: ['Flutter', 'SQLite', 'PDF/CSV export', 'Biometrics', 'Firebase'],
+    stack: [
+      'Flutter',
+      'ASP.NET Core 8',
+      'SQL Server',
+      'JWT',
+      'Firebase',
+      'Provider',
+    ],
+    githubUrl: 'https://github.com/Ozias-Owusu/lend_ledger',
     description:
-      'Personal lending tracker with biometric lock, local SQLite storage, and PDF/CSV export for records.',
-    shortDescription: 'Personal loan tracker with biometrics and export.',
-    problem: 'Informal lenders and small groups needed a simple way to track who owes what without complex spreadsheets.',
-    solution: 'Flutter app with SQLite persistence, biometric app lock, and one-tap PDF/CSV export.',
+      'Full-stack loan management for informal lenders and microfinance teams — Flutter mobile app with a custom ASP.NET Core API, daily and soft loan tracking, dashboards, and push notifications.',
+    shortDescription:
+      'Flutter + .NET loan tracker with dashboards, ledgers, and JWT API.',
+    problem:
+      'Small lenders and loan officers in Ghana still track daily loans, soft loans, and repayments in notebooks — making balances error-prone and hard to report on.',
+    solution:
+      'I built Lend Ledger as a Flutter app (github.com/Ozias-Owusu/lend_ledger) backed by my own ASP.NET Core 8 API and SQL Server (github.com/Ozias-Owusu/lendledgerBackend): customer profiles with Ghana Card fields, daily and installment-based soft loans, repayment ledgers, loan insights, role-based auth, and Firebase push notifications — styled with a warm rose-and-mint brand system.',
     features: [
-      'Borrower and loan entry management',
-      'Payment history and balance tracking',
-      'Biometric app lock',
-      'PDF and CSV export',
-      'Firebase backup option',
-      'Offline-first SQLite storage',
+      'Landing and JWT authentication with loan officer and admin roles',
+      'Dashboard with active loan totals, recent transactions, and quick actions',
+      'Customer directory with Ghana Card and license capture',
+      'Per-customer ledger with daily and soft loan history',
+      'Loan insights — repayment trends, type breakdown, and top borrowers',
+      'In-app notification center with unread badges',
+      'Settings with biometrics, profile, and data export',
+      'ASP.NET Core 8 REST API with SQL Server persistence',
+      'Firebase Cloud Messaging for repayment and overdue alerts',
     ],
     architecture: `graph LR
-  A[Lend Ledger App] --> B[(SQLite)]
-  A --> C[Biometrics]
-  A --> D[PDF Export]`,
-    technicalHighlights: ['SQLite offline', 'Biometric lock', 'PDF/CSV export'],
-    outcome: 'Personal finance tool for informal lending circles and small groups.',
+  A[Flutter App] --> B[ASP.NET Core API]
+  B --> C[(SQL Server)]
+  A --> D[Firebase FCM]
+  B --> D`,
+    technicalHighlights: [
+      'Flutter + Provider state management',
+      'ASP.NET Core 8 JWT API',
+      'Daily and soft loan models',
+      'Loan metrics and insights dashboards',
+      'Firebase push notifications',
+      'DM Serif Display brand system',
+    ],
+    outcome:
+      'End-to-end lending product — mobile app and backend I designed and built for real-world informal lending workflows.',
     featured: false,
     priority: 15,
-    accentColor: '#84cc16',
-    year: '2024',
+    accentColor: '#D7A9A4',
+    timeline: '5 months',
+    year: '2025',
+    coverImage: '/projects/lend-ledger/03-dashboard.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#D7A9A4',
+      secondary: '#C9D9D3',
+      accent: '#E7C6B7',
+    },
+    screenshots: [
+      {
+        src: '/projects/lend-ledger/01-landing.png',
+        alt: 'Lend Ledger landing page with warm rose gradient and loan management tagline',
+        caption: 'Landing — branded entry to loan management',
+      },
+      {
+        src: '/projects/lend-ledger/02-login.png',
+        alt: 'Lend Ledger login screen with email and password fields',
+        caption: 'Sign-in — secure JWT authentication',
+      },
+      {
+        src: '/projects/lend-ledger/03-dashboard.png',
+        alt: 'Lend Ledger dashboard with loan totals and recent transactions',
+        caption: 'Dashboard — active loans and daily activity',
+      },
+      {
+        src: '/projects/lend-ledger/04-customers.png',
+        alt: 'Lend Ledger customers list with borrower profiles',
+        caption: 'Customers — borrower directory',
+      },
+      {
+        src: '/projects/lend-ledger/05-customer-ledger.png',
+        alt: 'Lend Ledger customer ledger with daily and soft loan entries',
+        caption: 'Ledger — loan and repayment history',
+      },
+      {
+        src: '/projects/lend-ledger/06-loan-insights.png',
+        alt: 'Lend Ledger loan insights with charts and repayment trends',
+        caption: 'Insights — trends and portfolio breakdown',
+      },
+      {
+        src: '/projects/lend-ledger/07-notifications.png',
+        alt: 'Lend Ledger notifications for repayments and overdue loans',
+        caption: 'Notifications — repayments and alerts',
+      },
+      {
+        src: '/projects/lend-ledger/08-settings.png',
+        alt: 'Lend Ledger settings with profile and security options',
+        caption: 'Settings — profile and preferences',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Core Workflows',
+        subtitle: 'Day-to-day tools for loan officers',
+        items: [
+          {
+            src: '/projects/lend-ledger/03-dashboard.png',
+            alt: 'Lend Ledger dashboard with loan totals and recent transactions',
+            caption: 'Dashboard overview',
+          },
+          {
+            src: '/projects/lend-ledger/04-customers.png',
+            alt: 'Lend Ledger customers list with borrower profiles',
+            caption: 'Customer directory',
+          },
+          {
+            src: '/projects/lend-ledger/05-customer-ledger.png',
+            alt: 'Lend Ledger customer ledger with daily and soft loan entries',
+            caption: 'Customer ledger',
+          },
+          {
+            src: '/projects/lend-ledger/06-loan-insights.png',
+            alt: 'Lend Ledger loan insights with charts and repayment trends',
+            caption: 'Loan insights',
+          },
+        ],
+      },
+      {
+        title: 'Engagement',
+        subtitle: 'Alerts and account management',
+        items: [
+          {
+            src: '/projects/lend-ledger/07-notifications.png',
+            alt: 'Lend Ledger notifications for repayments and overdue loans',
+            caption: 'Notification center',
+          },
+          {
+            src: '/projects/lend-ledger/08-settings.png',
+            alt: 'Lend Ledger settings with profile and security options',
+            caption: 'Settings',
+          },
+        ],
+      },
+      {
+        title: 'Authentication',
+        subtitle: 'Branded entry and secure sign-in',
+        items: [
+          {
+            src: '/projects/lend-ledger/01-landing.png',
+            alt: 'Lend Ledger landing page with warm rose gradient and loan management tagline',
+            caption: 'Landing page',
+          },
+          {
+            src: '/projects/lend-ledger/02-login.png',
+            alt: 'Lend Ledger login screen with email and password fields',
+            caption: 'Sign-in',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'frankates-driver',
