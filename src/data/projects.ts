@@ -7,6 +7,12 @@ export type FilterCategory =
   | 'Personal'
   | 'POC'
 
+export interface ProjectScreenshot {
+  src: string
+  alt: string
+  caption?: string
+}
+
 export interface Project {
   slug: string
   displayName: string
@@ -20,6 +26,8 @@ export interface Project {
   apiUrl?: string
   githubUrl?: string
   repos?: string[]
+  coverImage?: string
+  screenshots?: ProjectScreenshot[]
   description: string
   shortDescription: string
   problem: string
@@ -98,6 +106,39 @@ export const projects: Project[] = [
     accentColor: '#22c55e',
     timeline: '6 months',
     year: '2025',
+    coverImage: '/projects/frankates-marketplace/01-landing.png',
+    screenshots: [
+      {
+        src: '/projects/frankates-marketplace/01-landing.png',
+        alt: 'Frankates multi-portal landing page with customer, vendor, admin, and driver entry points',
+        caption: 'Platform hub — four portals in one ecosystem',
+      },
+      {
+        src: '/projects/frankates-marketplace/02-shop-login.png',
+        alt: 'Frankates Mart customer shop login and marketplace marketing screen',
+        caption: 'Frankates Mart — customer marketplace portal',
+      },
+      {
+        src: '/projects/frankates-marketplace/04-vendor-login.png',
+        alt: 'Frankates vendor portal login with product catalog and analytics messaging',
+        caption: 'Vendor portal — store management entry',
+      },
+      {
+        src: '/projects/frankates-marketplace/05-admin-login.png',
+        alt: 'Frankates super admin portal login',
+        caption: 'Super admin — platform operations',
+      },
+      {
+        src: '/projects/frankates-marketplace/06-driver-login.png',
+        alt: 'Frankates driver web portal login for delivery management',
+        caption: 'Driver portal — mobile-friendly delivery workflow',
+      },
+      {
+        src: '/projects/frankates-marketplace/03-shop-register.png',
+        alt: 'Frankates Mart customer registration form',
+        caption: 'Customer onboarding — Ghana-ready signup flow',
+      },
+    ],
   },
   {
     slug: 'timetrakker-logistics',

@@ -3,12 +3,29 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, FolderGit2 } from 'lucide-react'
 import type { Project } from '@/data/projects'
 import TechBadge from './TechBadge'
-import { getProjectCoverPath } from '@/lib/utils'
 import DeviceMockup from './DeviceMockup'
+import { getProjectCoverPath } from '@/lib/utils'
 
 interface ProjectCardProps {
   project: Project
   featured?: boolean
+}
+
+function ProjectVisual({ project, featured }: { project: Project; featured?: boolean }) {
+  const cover = project.coverImage ?? getProjectCoverPath(project.slug)
+
+  if (project.coverImage || !featured) {
+    return (
+      <img
+        src={cover}
+        alt={`${project.displayName} cover`}
+        loading="lazy"
+        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+      />
+    )
+  }
+
+  return <DeviceMockup variant={project.slug} className="h-full w-full" />
 }
 
 export default function ProjectCard({ project, featured }: ProjectCardProps) {
@@ -20,16 +37,7 @@ export default function ProjectCard({ project, featured }: ProjectCardProps) {
     >
       <Link to={`/projects/${project.slug}`} className="block">
         <div className="relative aspect-[16/10] overflow-hidden bg-[var(--bg-elevated)]">
-          {featured ? (
-            <DeviceMockup variant={project.slug} className="h-full w-full" />
-          ) : (
-            <img
-              src={getProjectCoverPath(project.slug)}
-              alt={`${project.displayName} cover`}
-              loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          )}
+          <ProjectVisual project={project} featured={featured} />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent opacity-60" />
         </div>
       </Link>

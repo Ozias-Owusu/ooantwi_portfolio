@@ -109,7 +109,16 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
 
           <ScrollReveal className="mt-12">
             <div className="overflow-hidden rounded-3xl border border-[var(--border)]">
-              <DeviceMockup variant={project.slug} />
+              {project.screenshots?.[0] ? (
+                <img
+                  src={project.screenshots[0].src}
+                  alt={project.screenshots[0].alt}
+                  loading="lazy"
+                  className="w-full object-cover object-top"
+                />
+              ) : (
+                <DeviceMockup variant={project.slug} />
+              )}
             </div>
           </ScrollReveal>
 
@@ -164,17 +173,40 @@ export default function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             <ScrollReveal>
               <section>
                 <h2 className="font-display text-2xl font-bold text-[var(--text-primary)]">
-                  {project.employerProject ? 'Concept Preview' : 'Screenshots'}
+                  {project.screenshots?.length ? 'Screenshots' : project.employerProject ? 'Concept Preview' : 'Screenshots'}
                 </h2>
-                {project.employerProject && (
+                {project.employerProject && !project.screenshots?.length && (
                   <p className="mt-2 text-sm text-[var(--text-muted)]">
                     Illustrative mockups only — not production UI or client data.
                   </p>
                 )}
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <DeviceMockup variant={project.slug} type="browser" className="rounded-2xl border border-[var(--border)] overflow-hidden" />
-                  <DeviceMockup variant={project.slug} type="phone" className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]" />
-                </div>
+                {project.screenshots?.length ? (
+                  <div className="mt-6 grid gap-6">
+                    {project.screenshots.map((shot) => (
+                      <figure
+                        key={shot.src}
+                        className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]"
+                      >
+                        <img
+                          src={shot.src}
+                          alt={shot.alt}
+                          loading="lazy"
+                          className="w-full object-cover object-top"
+                        />
+                        {shot.caption && (
+                          <figcaption className="border-t border-[var(--border)] px-4 py-3 text-sm text-[var(--text-muted)]">
+                            {shot.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    <DeviceMockup variant={project.slug} type="browser" className="rounded-2xl border border-[var(--border)] overflow-hidden" />
+                    <DeviceMockup variant={project.slug} type="phone" className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)]" />
+                  </div>
+                )}
               </section>
             </ScrollReveal>
 
