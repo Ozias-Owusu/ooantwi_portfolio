@@ -1246,29 +1246,155 @@ export const projects: Project[] = [
     category: 'Learning Project',
     categories: ['Mobile', 'POC', 'Personal'],
     role: 'Solo Developer',
-    stack: ['Flutter', 'Hive', 'Camera', 'Voice notes'],
+    stack: ['Flutter', 'Provider', 'Hive', 'Camera', 'Voice notes', 'Emoji picker'],
+    githubUrl: 'https://github.com/Ozias-Owusu/whatsapp',
     description:
-      'Feature-rich messaging clone with local Hive storage, camera integration, and voice note recording.',
-    shortDescription: 'Messaging UI clone with camera and voice notes.',
-    problem: 'Learning exercise to understand real-time messaging UX patterns and media handling in Flutter.',
-    solution: 'Built a WhatsApp-inspired UI with Hive for local message storage, camera capture, and voice note playback.',
+      'A feature-rich WhatsApp-inspired Flutter UI shell with Hive-backed chats, status updates, communities, calls, voice notes, and media messages — built to study real messaging UX patterns.',
+    shortDescription:
+      'WhatsApp-style messaging UI with Hive, voice notes, and media.',
+    problem:
+      'I wanted to deeply understand modern messaging UX — chat lists, bubbles, status rings, swipe actions, and media capture — without relying on a backend.',
+    solution:
+      'I built a polished WhatsApp clone with Provider state management, Hive local persistence, seeded Ghana-themed demo conversations, and full tab navigation across Chats, Updates, Communities, and Calls — complete with wallpaper patterns, delivery ticks, and voice-note waveforms.',
     features: [
-      'Chat list and conversation views',
-      'Text, image, and voice message types',
-      'Camera integration for photo messages',
-      'Voice note recording and playback',
-      'Hive local message persistence',
+      'Chats tab with pinned threads, archived chats, and locked-chat vault',
+      'Rich conversations with text, images, voice notes, and file attachments',
+      'Status updates with story rings and channel suggestions',
+      'Communities hub with groups and announcements',
+      'Calls log with voice and video call entry points',
+      'Contact info, starred messages, and chat lock (PIN/biometrics)',
+      'Emoji picker, replies, reactions, and disappearing messages',
+      'Hive local persistence with seeded demo data',
+      'Light/dark theme with authentic WhatsApp green palette',
     ],
     architecture: `graph LR
-  A[Chat App] --> B[(Hive)]
-  A --> C[Camera]
-  A --> D[Audio Recorder]`,
-    technicalHighlights: ['Hive local DB', 'Camera plugin', 'Audio recording'],
-    outcome: 'Learning project demonstrating messaging UX and media handling in Flutter.',
+  A[Flutter UI Shell] --> B[(Hive)]
+  A --> C[Camera / Gallery]
+  A --> D[Audio Recorder]
+  A --> E[Local Auth]`,
+    technicalHighlights: [
+      'Hive offline message storage',
+      'WhatsApp-faithful bubble UI',
+      'Voice note recording & playback',
+      'Status & communities tabs',
+      'Chat lock & starred messages',
+    ],
+    outcome:
+      'A learning project that demonstrates production-grade messaging UX patterns — polished enough for portfolio showcase.',
     featured: false,
     priority: 18,
-    accentColor: '#25d366',
+    accentColor: '#25D366',
+    timeline: '3 months',
     year: '2023',
+    coverImage: '/projects/whatsapp-clone/01-chats.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#075E54',
+      secondary: '#25D366',
+      accent: '#128C7E',
+    },
+    screenshots: [
+      {
+        src: '/projects/whatsapp-clone/01-chats.png',
+        alt: 'WhatsApp clone chats list with pinned conversations and filters',
+        caption: 'Chats — inbox with pinned threads',
+      },
+      {
+        src: '/projects/whatsapp-clone/02-chat-conversation.png',
+        alt: 'WhatsApp clone chat conversation with text and image messages',
+        caption: 'Conversation — text and photo bubbles',
+      },
+      {
+        src: '/projects/whatsapp-clone/03-chat-voice-note.png',
+        alt: 'WhatsApp clone chat with voice note message waveform',
+        caption: 'Voice note — audio message playback',
+      },
+      {
+        src: '/projects/whatsapp-clone/04-updates.png',
+        alt: 'WhatsApp clone updates tab with status rings and channels',
+        caption: 'Updates — status stories and channels',
+      },
+      {
+        src: '/projects/whatsapp-clone/05-calls.png',
+        alt: 'WhatsApp clone calls tab with recent call history',
+        caption: 'Calls — voice and video log',
+      },
+      {
+        src: '/projects/whatsapp-clone/06-communities.png',
+        alt: 'WhatsApp clone communities tab with groups',
+        caption: 'Communities — group hubs',
+      },
+      {
+        src: '/projects/whatsapp-clone/07-contact-info.png',
+        alt: 'WhatsApp clone contact info screen with media and settings',
+        caption: 'Contact info — profile and chat settings',
+      },
+      {
+        src: '/projects/whatsapp-clone/08-settings.png',
+        alt: 'WhatsApp clone settings screen with profile and theme toggle',
+        caption: 'Settings — profile and preferences',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Messaging',
+        subtitle: 'Core chat experiences',
+        items: [
+          {
+            src: '/projects/whatsapp-clone/01-chats.png',
+            alt: 'WhatsApp clone chats list with pinned conversations and filters',
+            caption: 'Chat inbox',
+          },
+          {
+            src: '/projects/whatsapp-clone/02-chat-conversation.png',
+            alt: 'WhatsApp clone chat conversation with text and image messages',
+            caption: 'Text & photo chat',
+          },
+          {
+            src: '/projects/whatsapp-clone/03-chat-voice-note.png',
+            alt: 'WhatsApp clone chat with voice note message waveform',
+            caption: 'Voice notes',
+          },
+        ],
+      },
+      {
+        title: 'Social Tabs',
+        subtitle: 'Status, calls, and communities',
+        items: [
+          {
+            src: '/projects/whatsapp-clone/04-updates.png',
+            alt: 'WhatsApp clone updates tab with status rings and channels',
+            caption: 'Status updates',
+          },
+          {
+            src: '/projects/whatsapp-clone/05-calls.png',
+            alt: 'WhatsApp clone calls tab with recent call history',
+            caption: 'Calls log',
+          },
+          {
+            src: '/projects/whatsapp-clone/06-communities.png',
+            alt: 'WhatsApp clone communities tab with groups',
+            caption: 'Communities',
+          },
+        ],
+      },
+      {
+        title: 'Profile & Settings',
+        subtitle: 'Contact details and app preferences',
+        items: [
+          {
+            src: '/projects/whatsapp-clone/07-contact-info.png',
+            alt: 'WhatsApp clone contact info screen with media and settings',
+            caption: 'Contact info',
+          },
+          {
+            src: '/projects/whatsapp-clone/08-settings.png',
+            alt: 'WhatsApp clone settings screen with profile and theme toggle',
+            caption: 'Settings',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'simple-chat',

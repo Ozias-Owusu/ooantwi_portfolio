@@ -48,6 +48,14 @@ Capture scenes: `landing`, `login`, `dashboard`, `customers`, `ledger`, `insight
 
 Capture scenes: `splash`, `login`, `home-offline`, `home-online`, `job-assigned`, `job-navigation`, `job-in-transit`, `forgot-password`.
 
+## WhatsApp Clone (Flutter mobile)
+1. Use `whatsapp` on the `master` branch.
+2. `flutter build web` in that repo (Hive seeds demo chats locally).
+3. From the portfolio repo: `npm run capture:whatsapp-clone`
+4. Screenshots land in `public/projects/whatsapp-clone/`.
+
+Capture scenes: `chats`, `chat-detail`, `chat-voice`, `updates`, `calls`, `communities`, `contact-info`, `settings`.
+
 ## Per featured project suggestions
 - Frankates Marketplace: customer storefront, vendor dashboard, delivery tracking map
 - TimeTrakker Logistics: driver dashboard, biometric enrollment, trip tracking
