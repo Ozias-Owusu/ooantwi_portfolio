@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "capture:frankates": "node scripts/capture-frankates-screenshots.mjs"
+    "capture:frankates": "node scripts/capture-frankates-screenshots.mjs",
+    "capture:frankates:auth": "node scripts/capture-frankates-authenticated.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
