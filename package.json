@@ -14,7 +14,10 @@
     "capture:vms-host": "node scripts/capture-vms-host-screenshots.mjs",
     "capture:lend-ledger": "node scripts/capture-lend-ledger-screenshots.mjs",
     "capture:frankates-driver": "node scripts/capture-frankates-driver-screenshots.mjs",
-    "capture:whatsapp-clone": "node scripts/capture-whatsapp-clone-screenshots.mjs"
+    "capture:whatsapp-clone": "node scripts/capture-whatsapp-clone-screenshots.mjs",
+    "capture:hostelhub-mobile": "node scripts/capture-hostelhub-mobile-screenshots.mjs",
+    "capture:hostelhub-web": "node scripts/capture-hostelhub-web-screenshots.mjs",
+    "capture:hostelhub": "npm run capture:hostelhub-mobile && npm run capture:hostelhub-web"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

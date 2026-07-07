@@ -69,35 +69,51 @@ export default function ScreenshotGallery({ project }: ScreenshotGalleryProps) {
   const sections = project.screenshotSections
   const flatShots = project.screenshots ?? []
 
-  if (sections?.length && isMobile) {
+  if (sections?.length) {
     return (
       <div className="space-y-14">
-        {sections.map((section) => (
-          <section key={section.title}>
-            <div
-              className="mb-8 rounded-2xl border px-5 py-4 md:px-6"
-              style={{
-                borderColor: `${theme?.primary ?? '#4338CA'}33`,
-                background: `linear-gradient(135deg, ${theme?.primary ?? '#4338CA'}14, ${theme?.secondary ?? '#0D9488'}10)`,
-              }}
-            >
-              <h3
-                className="font-display text-xl font-bold md:text-2xl"
-                style={{ color: theme?.primary ?? 'var(--text-primary)' }}
+        {sections.map((section) => {
+          const sectionMobile =
+            section.layout ?? project.screenshotLayout ?? 'desktop'
+          const usePhoneFrame = sectionMobile === 'mobile'
+
+          return (
+            <section key={section.title}>
+              <div
+                className="mb-8 rounded-2xl border px-5 py-4 md:px-6"
+                style={{
+                  borderColor: `${theme?.primary ?? '#4338CA'}33`,
+                  background: `linear-gradient(135deg, ${theme?.primary ?? '#4338CA'}14, ${theme?.secondary ?? '#0D9488'}10)`,
+                }}
               >
-                {section.title}
-              </h3>
-              {section.subtitle && (
-                <p className="mt-1 text-sm text-[var(--text-muted)]">{section.subtitle}</p>
-              )}
-            </div>
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-              {section.items.map((shot) => (
-                <PhoneFrame key={shot.src} shot={shot} theme={theme} />
-              ))}
-            </div>
-          </section>
-        ))}
+                <h3
+                  className="font-display text-xl font-bold md:text-2xl"
+                  style={{ color: theme?.primary ?? 'var(--text-primary)' }}
+                >
+                  {section.title}
+                </h3>
+                {section.subtitle && (
+                  <p className="mt-1 text-sm text-[var(--text-muted)]">{section.subtitle}</p>
+                )}
+              </div>
+              <div
+                className={
+                  usePhoneFrame
+                    ? 'grid gap-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4'
+                    : 'grid gap-6'
+                }
+              >
+                {section.items.map((shot) =>
+                  usePhoneFrame ? (
+                    <PhoneFrame key={shot.src} shot={shot} theme={theme} />
+                  ) : (
+                    <DesktopShot key={shot.src} shot={shot} />
+                  ),
+                )}
+              </div>
+            </section>
+          )
+        })}
       </div>
     )
   }

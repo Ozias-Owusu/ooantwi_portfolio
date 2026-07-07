@@ -22,6 +22,7 @@ export interface ProjectBrandTheme {
 export interface ProjectScreenshotSection {
   title: string
   subtitle?: string
+  layout?: 'mobile' | 'desktop'
   items: ProjectScreenshot[]
 }
 
@@ -865,30 +866,150 @@ export const projects: Project[] = [
     categories: ['Web', 'Mobile', 'Backend', 'Personal'],
     role: 'Full-Stack Developer',
     stack: ['Flutter', 'Node.js', 'Express', 'MongoDB'],
+    githubUrl: 'https://github.com/Ozias-Owusu/hostel_mobile_app',
+    repos: [
+      'https://github.com/Ozias-Owusu/hostel_mobile_app',
+      'https://github.com/Ozias-Owusu/hostel_web_portal',
+    ],
     apiUrl: 'https://hostel-management-backend-hu0m.onrender.com',
     description:
-      'Full hostel management suite with Flutter mobile app, web portal, and Node/Express/MongoDB backend.',
+      'Full hostel management suite with a Flutter mobile app for students, a Flutter web admin portal for hostel managers, and a Node/Express/MongoDB backend.',
     shortDescription: 'Hostel booking and management across mobile, web, and API.',
-    problem: 'Hostel managers juggled spreadsheets for rooms, tenants, and payments with no unified system.',
-    solution: 'Built a three-part suite: Flutter mobile for tenants, Flutter web portal for managers, and Express API on MongoDB.',
+    problem:
+      'Hostel managers juggled spreadsheets for rooms, tenants, and payments with no unified system — and students had no easy way to browse and book rooms.',
+    solution:
+      'I built HostelHub as a three-part suite: a Flutter mobile app (github.com/Ozias-Owusu/hostel_mobile_app) for students to discover hostels, filter listings, and book rooms; a Flutter web admin portal (github.com/Ozias-Owusu/hostel_web_portal) for dashboards, bookings, finance, and disputes; and an Express REST API on MongoDB deployed on Render.',
     features: [
-      'Room and bed allocation management',
-      'Tenant registration and payment tracking',
-      'Flutter mobile app for student tenants',
-      'Web portal for hostel administrators',
-      'REST API deployed on Render',
-      'MongoDB for flexible hostel data models',
+      'Student mobile app with hostel search, filters, and room booking flow',
+      'Hostel detail pages with amenities, gallery, and pricing',
+      'Owner dashboard for managing listed properties',
+      'Web admin portal with dashboard stats and recent bookings',
+      'Hostel, room, and amenity management screens',
+      'Bookings, finance, disputes, and reviews modules',
+      'REST API deployed on Render with MongoDB persistence',
     ],
     architecture: `graph LR
   A[Flutter Mobile] --> C[Express API]
-  B[Flutter Web] --> C
+  B[Flutter Web Portal] --> C
   C --> D[(MongoDB)]`,
-    technicalHighlights: ['Multi-platform Flutter', 'Express REST API', 'MongoDB'],
-    outcome: 'Client-ready hostel management platform with live API deployment.',
+    technicalHighlights: [
+      'Multi-platform Flutter — mobile and web admin',
+      'Material 3 purple brand system on mobile',
+      'Indigo admin sidebar with frosted-glass dashboard cards',
+      'Express REST API on Render',
+      'MongoDB for flexible hostel data models',
+    ],
+    outcome:
+      'Client-ready hostel management platform spanning student booking, admin operations, and a live API deployment.',
     featured: false,
     priority: 14,
-    accentColor: '#ec4899',
+    accentColor: '#66558f',
     year: '2024',
+    coverImage: '/projects/hostelhub/mobile/03-hostel-list.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#66558f',
+      secondary: '#7e525f',
+      accent: '#d0bcfe',
+    },
+    screenshots: [
+      {
+        src: '/projects/hostelhub/mobile/03-hostel-list.png',
+        alt: 'HostelHub mobile hostel listings with search and filters',
+        caption: 'Mobile — browse available hostels',
+      },
+      {
+        src: '/projects/hostelhub/web/02-dashboard.png',
+        alt: 'HostelHub admin dashboard with stats and recent bookings',
+        caption: 'Web — admin dashboard overview',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Mobile App',
+        subtitle: 'Student booking experience on Flutter',
+        layout: 'mobile',
+        items: [
+          {
+            src: '/projects/hostelhub/mobile/01-splash.png',
+            alt: 'HostelHub splash screen with purple gradient branding',
+            caption: 'Splash — branded entry',
+          },
+          {
+            src: '/projects/hostelhub/mobile/02-login.png',
+            alt: 'HostelHub login with student and owner role selection',
+            caption: 'Login — student or owner roles',
+          },
+          {
+            src: '/projects/hostelhub/mobile/03-hostel-list.png',
+            alt: 'HostelHub hostel listings with search and price filters',
+            caption: 'Hostel list — search and filters',
+          },
+          {
+            src: '/projects/hostelhub/mobile/04-hostel-detail.png',
+            alt: 'HostelHub hostel detail with amenities and gallery',
+            caption: 'Hostel detail — amenities and gallery',
+          },
+          {
+            src: '/projects/hostelhub/mobile/05-room-selection.png',
+            alt: 'HostelHub room selection grid with availability',
+            caption: 'Room selection — pick a bed',
+          },
+          {
+            src: '/projects/hostelhub/mobile/06-booking-confirmation.png',
+            alt: 'HostelHub booking confirmation with payment options',
+            caption: 'Booking — confirm and pay',
+          },
+          {
+            src: '/projects/hostelhub/mobile/07-owner-home.png',
+            alt: 'HostelHub owner dashboard listing managed hostels',
+            caption: 'Owner — property dashboard',
+          },
+        ],
+      },
+      {
+        title: 'Web Admin Portal',
+        subtitle: 'Hostel manager operations on Flutter web',
+        layout: 'desktop',
+        items: [
+          {
+            src: '/projects/hostelhub/web/01-auth.png',
+            alt: 'HostelHub admin portal login screen',
+            caption: 'Sign-in — owner and admin access',
+          },
+          {
+            src: '/projects/hostelhub/web/02-dashboard.png',
+            alt: 'HostelHub admin dashboard with hostel, user, and revenue stats',
+            caption: 'Dashboard — KPIs and recent bookings',
+          },
+          {
+            src: '/projects/hostelhub/web/03-hostels.png',
+            alt: 'HostelHub admin hostels management page',
+            caption: 'Hostels — property management',
+          },
+          {
+            src: '/projects/hostelhub/web/04-bookings.png',
+            alt: 'HostelHub admin bookings list',
+            caption: 'Bookings — reservation tracking',
+          },
+          {
+            src: '/projects/hostelhub/web/05-finance.png',
+            alt: 'HostelHub admin finance overview',
+            caption: 'Finance — revenue and payments',
+          },
+          {
+            src: '/projects/hostelhub/web/06-disputes.png',
+            alt: 'HostelHub admin disputes management',
+            caption: 'Disputes — issue resolution',
+          },
+          {
+            src: '/projects/hostelhub/web/07-reviews.png',
+            alt: 'HostelHub admin reviews page',
+            caption: 'Reviews — tenant feedback',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'lend-ledger',
