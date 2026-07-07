@@ -517,29 +517,153 @@ export const projects: Project[] = [
     role: 'Flutter Developer · Persol Systems',
     scopeLabel: 'Production · Employer project',
     employerProject: true,
-    stack: ['Flutter', 'GetX', 'OAuth', 'Biometrics'],
+    stack: ['Flutter', 'GetX', 'Material 3', 'OAuth', 'Biometrics', 'REST API'],
     description:
-      'Host-facing mobile app for approving visitors, viewing schedules, and managing facility access.',
-    shortDescription: 'Host app for visitor approvals and facility access.',
-    problem: 'Hosts needed mobile tools to pre-approve visitors and manage access without desktop dependency.',
-    solution: 'Flutter app with GetX state management, OAuth login, and biometric quick-unlock.',
+      'Host-facing Flutter app for approving visitors, monitoring today’s appointments, and managing facility access — with a steel-blue Material 3 design tuned for busy workplace hosts.',
+    shortDescription:
+      'Host app for visitor approvals, schedules, and biometric quick-unlock.',
+    problem:
+      'Facility hosts needed mobile tools to pre-approve visitors, respond to pending invites, and track check-ins without depending on desktop portals or reception calls.',
+    solution:
+      'I built a Flutter host portal with GetX state management, OAuth enterprise sign-in, biometric unlock, and role-focused dashboards for pending approvals, today’s schedule, and visitor notifications.',
     features: [
-      'Visitor pre-approval workflow',
-      'Visitor arrival notifications',
-      'Biometric app unlock',
+      'Host dashboard with upcoming, pending, today, and checked-in metrics',
+      'Pending visitor approval workflow with approve/reject actions',
+      'Today’s and past appointment lists with detail bottom sheets',
+      'Push-style notification center for arrivals and reminders',
+      'Profile and security settings with biometric quick-unlock',
+      'New appointment booking flow for hosts',
       'OAuth enterprise authentication',
-      'Host schedule and visit calendar',
+      'REST integration with visitor management APIs',
     ],
     architecture: `graph LR
   A[Flutter Host App] --> B[Enterprise API]
   A --> C[Biometrics]
-  A --> D[GetX State]`,
-    technicalHighlights: ['GetX architecture', 'OAuth', 'Biometric unlock'],
-    outcome: 'Production companion app for host-side visitor management workflows.',
+  A --> D[GetX State]
+  B --> E[(Visitor Records)]`,
+    technicalHighlights: [
+      'GetX architecture',
+      'Material 3 theming',
+      'OAuth enterprise auth',
+      'Biometric unlock',
+      'Approval workflows',
+    ],
+    outcome:
+      'Production companion app for host-side visitor management — helping facility hosts approve guests and track visits from their phone.',
     featured: false,
     priority: 7,
-    accentColor: '#14b8a6',
+    accentColor: '#28638A',
+    timeline: '4 months',
     year: '2025',
+    coverImage: '/projects/vms-host-app/02-host-dashboard.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#28638A',
+      secondary: '#76C7C0',
+      accent: '#96CCF8',
+    },
+    screenshots: [
+      {
+        src: '/projects/vms-host-app/01-onboarding.png',
+        alt: 'VMS Host onboarding welcome screen with visitor management overview',
+        caption: 'Onboarding — welcome to visitor management',
+      },
+      {
+        src: '/projects/vms-host-app/02-host-dashboard.png',
+        alt: 'VMS Host dashboard with appointment stats and quick actions',
+        caption: 'Host dashboard — daily visitor overview',
+      },
+      {
+        src: '/projects/vms-host-app/03-pending-approvals.png',
+        alt: 'VMS Host pending visitor approval requests with approve and reject actions',
+        caption: 'Pending approvals — review visitor requests',
+      },
+      {
+        src: '/projects/vms-host-app/04-todays-appointments.png',
+        alt: 'VMS Host today appointments list with visitor details',
+        caption: "Today's schedule — upcoming visits",
+      },
+      {
+        src: '/projects/vms-host-app/05-past-appointments.png',
+        alt: 'VMS Host past appointments history screen',
+        caption: 'Visit history — past appointments',
+      },
+      {
+        src: '/projects/vms-host-app/06-notifications.png',
+        alt: 'VMS Host notification center with visit alerts and reminders',
+        caption: 'Notifications — arrivals and reminders',
+      },
+      {
+        src: '/projects/vms-host-app/07-profile-settings.png',
+        alt: 'VMS Host profile settings with theme toggle and account details',
+        caption: 'Profile — account and preferences',
+      },
+      {
+        src: '/projects/vms-host-app/08-security-settings.png',
+        alt: 'VMS Host security settings with biometric and PIN options',
+        caption: 'Security — biometric quick-unlock',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Host Dashboard',
+        subtitle: 'At-a-glance metrics and quick actions for busy hosts',
+        items: [
+          {
+            src: '/projects/vms-host-app/02-host-dashboard.png',
+            alt: 'VMS Host dashboard with appointment stats and quick actions',
+            caption: 'Daily overview',
+          },
+          {
+            src: '/projects/vms-host-app/01-onboarding.png',
+            alt: 'VMS Host onboarding welcome screen',
+            caption: 'Onboarding flow',
+          },
+        ],
+      },
+      {
+        title: 'Visitor Operations',
+        subtitle: 'Approve guests and manage schedules on the go',
+        items: [
+          {
+            src: '/projects/vms-host-app/03-pending-approvals.png',
+            alt: 'VMS Host pending visitor approval requests',
+            caption: 'Pending approvals',
+          },
+          {
+            src: '/projects/vms-host-app/04-todays-appointments.png',
+            alt: 'VMS Host today appointments list',
+            caption: "Today's visits",
+          },
+          {
+            src: '/projects/vms-host-app/05-past-appointments.png',
+            alt: 'VMS Host past appointments history',
+            caption: 'Visit history',
+          },
+        ],
+      },
+      {
+        title: 'Account & Alerts',
+        subtitle: 'Notifications, profile, and security controls',
+        items: [
+          {
+            src: '/projects/vms-host-app/06-notifications.png',
+            alt: 'VMS Host notification center',
+            caption: 'Notification center',
+          },
+          {
+            src: '/projects/vms-host-app/07-profile-settings.png',
+            alt: 'VMS Host profile settings',
+            caption: 'Profile settings',
+          },
+          {
+            src: '/projects/vms-host-app/08-security-settings.png',
+            alt: 'VMS Host security settings',
+            caption: 'Security settings',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'erdms-approval',

@@ -22,6 +22,14 @@ Use these steps when you want to replace the generated placeholder visuals with 
 
 The web build supports `?capture=<scene>` query params for reliable screenshots (e.g. `member-home`, `admin-attendance`). Demo logins: `member@churchos.demo` / `admin@churchos.demo` with password `password123`.
 
+## VMS Host (Flutter mobile · employer)
+1. Use `vms_host_app` on the `test` branch (no OIDC gate).
+2. `flutter build web` in that repo (capture mode uses illustrative portfolio data).
+3. From the portfolio repo: `npm run capture:vms-host`
+4. Screenshots land in `public/projects/vms-host-app/`.
+
+Capture scenes: `onboarding`, `home`, `pending`, `today`, `past`, `notifications`, `profile`, `security`.
+
 ## Per featured project suggestions
 - Frankates Marketplace: customer storefront, vendor dashboard, delivery tracking map
 - TimeTrakker Logistics: driver dashboard, biometric enrollment, trip tracking
