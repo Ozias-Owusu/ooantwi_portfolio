@@ -18,7 +18,11 @@
     "capture:hostelhub-mobile": "node scripts/capture-hostelhub-mobile-screenshots.mjs",
     "capture:hostelhub-web": "node scripts/capture-hostelhub-web-screenshots.mjs",
     "capture:hostelhub": "npm run capture:hostelhub-mobile && npm run capture:hostelhub-web",
-    "generate:resume": "node scripts/generate-resume.mjs"
+    "generate:resume": "node scripts/generate-resume.mjs",
+    "capture:bridgecare-website": "node scripts/capture-bridgecare-website-screenshots.mjs",
+    "capture:bridgecare-mobile": "node scripts/capture-bridgecare-mobile-screenshots.mjs",
+    "capture:bridgecare-webapp": "node scripts/capture-bridgecare-webapp-screenshots.mjs",
+    "capture:bridgecare": "npm run capture:bridgecare-website && npm run capture:bridgecare-mobile && npm run capture:bridgecare-webapp"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

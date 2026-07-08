@@ -1332,6 +1332,224 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'bridgecare-collective',
+    displayName: 'BridgeCare Collective',
+    category: 'Personal / Client',
+    categories: ['Web', 'Mobile', 'Personal'],
+    role: 'Full-Stack Developer',
+    stack: [
+      'Flutter',
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'GoRouter',
+      'Provider',
+    ],
+    liveUrl: 'https://bridgecare-collective-website.onrender.com/',
+    githubUrl: 'https://github.com/Ozias-Owusu/bridgeCare_Collective_mobile',
+    repos: [
+      'https://github.com/Ozias-Owusu/bridgeCare_Collective_mobile',
+      'https://github.com/Ozias-Owusu/bridgeCare_Collective_webapp',
+    ],
+    description:
+      'A three-part healthcare awareness suite for Ghana and beyond — a marketing website, a Next.js patient/doctor web app, and a Flutter mobile app that teach, answer questions, and connect communities with clinicians through trusted, prevention-first health education.',
+    shortDescription:
+      'Health education suite: marketing site, Next.js webapp, and Flutter mobile for patients and doctors.',
+    problem:
+      'Communities across Ghana often get health information from myths, informal chats, or emergency rooms — after a crisis starts. There was no trusted, accessible place where everyday people could learn prevention, ask thoughtful questions, and reach clinicians for educational guidance without treating the channel as an ER.',
+    solution:
+      'I built BridgeCare Collective as a three-fold product: a live marketing website (bridgecare-collective-website.onrender.com) that introduces the mission and values; a Next.js webapp (github.com/Ozias-Owusu/bridgeCare_Collective_webapp) for patients and doctors to learn, ask, chat, and publish; and a Flutter mobile app (github.com/Ozias-Owusu/bridgeCare_Collective_mobile) with the same patient/clinician experience on device — brand-aligned in navy, mint, and community green, with clear disclaimers that the product is educational guidance only.',
+    features: [
+      'Marketing website — mission, values, offerings, and contact with a Launch App CTA',
+      'Dual roles — patient (learn / ask / chat) and doctor (publish / answer / patients)',
+      'Learn library — topics, doctor-verified articles, videos, and save-for-later',
+      'Community Ask — question queue with doctor answers and related media',
+      'Private clinician chat threads with unread badges',
+      'Doctor publish flow — create and manage educational guides',
+      'Shared sample content, brand system, and demo accounts across web and mobile',
+      'Tip of the day, notifications, dark mode, and educational-only safety banners',
+    ],
+    architecture: `graph TB
+  W[Marketing Website] --> A[Launch Web App]
+  M[Flutter Mobile] --> S[Shared Product Model]
+  N[Next.js Webapp] --> S
+  S --> P[Patients: Learn Ask Chat]
+  S --> D[Doctors: Publish Answer Patients]`,
+    technicalHighlights: [
+      'Flutter + GoRouter + Provider with role-aware shell navigation',
+      'Next.js 16 App Router + TypeScript + Tailwind v4 product UI',
+      'Unified BridgeCare brand palette across website, webapp, and mobile',
+      'Patient vs doctor experience with shared sample seed data',
+      'Framer Motion marketing/product polish and clinical safety disclaimers',
+    ],
+    outcome:
+      'A cohesive health-education product family spanning marketing presence, web product, and mobile app — ready to demonstrate patient learning, clinician publishing, community Q&A, and guided chat in one brand.',
+    featured: true,
+    priority: 3,
+    accentColor: '#005191',
+    year: '2026',
+    timeline: 'Product suite',
+    coverImage: '/projects/bridgecare-collective/website/01-home.png',
+    screenshotLayout: 'desktop',
+    brandTheme: {
+      primary: '#005191',
+      secondary: '#4A9B2F',
+      accent: '#007FAA',
+    },
+    screenshots: [
+      {
+        src: '/projects/bridgecare-collective/website/01-home.png',
+        alt: 'BridgeCare Collective marketing homepage hero',
+        caption: 'Website — branded health awareness landing',
+      },
+      {
+        src: '/projects/bridgecare-collective/webapp/02-home.png',
+        alt: 'BridgeCare webapp patient home dashboard',
+        caption: 'Webapp — patient health hub',
+      },
+      {
+        src: '/projects/bridgecare-collective/mobile/04-home.png',
+        alt: 'BridgeCare mobile home with tip of the day',
+        caption: 'Mobile — learn, ask, and chat on the go',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Marketing Website',
+        subtitle: 'Public presence for BridgeCare Collective',
+        layout: 'desktop',
+        items: [
+          {
+            src: '/projects/bridgecare-collective/website/01-home.png',
+            alt: 'BridgeCare Collective homepage with mission hero and Launch App CTA',
+            caption: 'Home — bridging health knowledge & community care',
+          },
+          {
+            src: '/projects/bridgecare-collective/website/02-about-values.png',
+            alt: 'BridgeCare about and values page',
+            caption: 'About & values — trust, prevention, community',
+          },
+          {
+            src: '/projects/bridgecare-collective/website/03-what-we-offer.png',
+            alt: 'BridgeCare what we offer page',
+            caption: 'What we offer — education, ask, connect',
+          },
+          {
+            src: '/projects/bridgecare-collective/website/04-contact.png',
+            alt: 'BridgeCare contact page',
+            caption: 'Contact — reach the collective',
+          },
+        ],
+      },
+      {
+        title: 'Web App',
+        subtitle: 'Next.js product for patients and clinicians',
+        layout: 'desktop',
+        items: [
+          {
+            src: '/projects/bridgecare-collective/webapp/01-login.png',
+            alt: 'BridgeCare webapp login with patient and doctor demos',
+            caption: 'Sign-in — dual-role demo access',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/02-home.png',
+            alt: 'BridgeCare patient home dashboard with tip of the day',
+            caption: 'Patient home — learn, ask, chat',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/03-learn.png',
+            alt: 'BridgeCare learn library with topics and articles',
+            caption: 'Learn — topics, articles, and videos',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/04-article.png',
+            alt: 'BridgeCare article reader',
+            caption: 'Article — practical health guidance',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/05-ask.png',
+            alt: 'BridgeCare community ask queue',
+            caption: 'Ask — community Q&A',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/07-chat.png',
+            alt: 'BridgeCare clinician chat inbox',
+            caption: 'Chat — doctor threads',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/09-doctor-home.png',
+            alt: 'BridgeCare clinician dashboard',
+            caption: 'Doctor home — publish and answer queue',
+          },
+          {
+            src: '/projects/bridgecare-collective/webapp/10-publish.png',
+            alt: 'BridgeCare doctor publish library',
+            caption: 'Publish — clinician content library',
+          },
+        ],
+      },
+      {
+        title: 'Mobile App',
+        subtitle: 'Flutter companion for learning and guidance on the go',
+        layout: 'mobile',
+        items: [
+          {
+            src: '/projects/bridgecare-collective/mobile/01-splash.png',
+            alt: 'BridgeCare mobile splash with brand logo',
+            caption: 'Splash — Know better. Live better.',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/02-onboarding.png',
+            alt: 'BridgeCare mobile onboarding slides',
+            caption: 'Onboarding — learn, ask, chat',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/03-login.png',
+            alt: 'BridgeCare mobile login screen',
+            caption: 'Login — demo patient and doctor accounts',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/04-home.png',
+            alt: 'BridgeCare mobile home with tip of the day and continue learning',
+            caption: 'Home — personalized health hub',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/05-learn.png',
+            alt: 'BridgeCare mobile learn library',
+            caption: 'Learn — browse topics and media',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/06-article.png',
+            alt: 'BridgeCare mobile article detail',
+            caption: 'Article — deep-dive education',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/07-ask.png',
+            alt: 'BridgeCare mobile ask community screen',
+            caption: 'Ask — pose and explore questions',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/09-chat.png',
+            alt: 'BridgeCare mobile chat inbox',
+            caption: 'Chat — clinician conversations',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/11-doctor-home.png',
+            alt: 'BridgeCare mobile doctor home dashboard',
+            caption: 'Doctor home — publish and answer on mobile',
+          },
+          {
+            src: '/projects/bridgecare-collective/mobile/12-publish.png',
+            alt: 'BridgeCare mobile publish library for doctors',
+            caption: 'Publish — manage guides on device',
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: 'bridgecare-face-poc',
     displayName: 'BridgeCare Biometric Attendance POC',
     category: 'POC',
