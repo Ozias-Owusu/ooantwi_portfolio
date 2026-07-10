@@ -1550,34 +1550,221 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'bridgecare-face-poc',
-    displayName: 'BridgeCare Biometric Attendance POC',
-    category: 'POC',
-    categories: ['Mobile', 'POC'],
-    role: 'Solo Developer',
-    stack: ['Flutter', 'ML Kit', 'TFLite', 'Hive'],
-    description:
-      'Proof-of-concept for face-based attendance using ML Kit, TFLite models, and Hive local storage.',
-    shortDescription: 'Face recognition attendance proof-of-concept.',
-    problem: 'Explored whether on-device face recognition could replace manual attendance in low-connectivity settings.',
-    solution: 'POC Flutter app with ML Kit face detection, TFLite inference, and Hive for embedding storage.',
-    features: [
-      'Face enrollment and recognition',
-      'ML Kit face detection pipeline',
-      'TFLite on-device inference',
-      'Hive local embedding storage',
-      'Attendance log with timestamps',
+    slug: 'car-rental-gh',
+    displayName: 'Car Rental GH',
+    category: 'Personal / Client',
+    categories: ['Web', 'Mobile', 'Backend', 'Personal'],
+    role: 'Full-Stack Developer',
+    stack: [
+      'Flutter',
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'ASP.NET Core 8',
+      'PostgreSQL',
+      'JWT',
+      'Riverpod',
+      'TanStack Query',
     ],
-    architecture: `graph LR
-  A[BridgeCare POC] --> B[ML Kit]
-  A --> C[TFLite]
-  A --> D[(Hive)]`,
-    technicalHighlights: ['ML Kit', 'TFLite on-device', 'Hive storage'],
-    outcome: 'Successful POC validating on-device face attendance feasibility.',
-    featured: false,
-    priority: 17,
-    accentColor: '#f43f5e',
-    year: '2024',
+    githubUrl: 'https://github.com/Ozias-Owusu/car_rental_mobile_app',
+    repos: [
+      'https://github.com/Ozias-Owusu/car_rental_mobile_app',
+      'https://github.com/Ozias-Owusu/car_rental_customer_web',
+      'https://github.com/Ozias-Owusu/car_rental_web_admin',
+      'https://github.com/Ozias-Owusu/car_rental_backend',
+    ],
+    apiUrl: 'https://car-rental-api-test.onrender.com',
+    description:
+      'A full-stack Ghana car rental platform — Flutter customer mobile app, React customer web, React admin/partner operations portal, and an ASP.NET Core 8 API on PostgreSQL for bookings, fleet, partners, and payments.',
+    shortDescription:
+      'Ghana car rental suite: mobile, customer web, admin portal, and .NET API.',
+    problem:
+      'Car rental in Ghana still runs on phone calls, WhatsApp quotes, and paper handovers — customers struggle to compare vehicles across cities, while partners and admins lack one system for fleet, bookings, approvals, and revenue.',
+    solution:
+      'I built Car Rental GH as a four-part platform: a Flutter mobile app (github.com/Ozias-Owusu/car_rental_mobile_app) and React customer web (github.com/Ozias-Owusu/car_rental_customer_web) for searching and booking across Accra, Kumasi, and more; a React admin/partner portal (github.com/Ozias-Owusu/car_rental_web_admin) for fleet, customers, partners, approvals, disputes, and reports; and an ASP.NET Core 8 API with PostgreSQL (github.com/Ozias-Owusu/car_rental_backend) deployed on Render.',
+    features: [
+      'Customer mobile app — city search, vehicle browse, booking flow, and notifications',
+      'Customer web — hero search, vehicle listings, booking wizard, profile, and bookings',
+      'Admin portal — dashboard, vehicles, customers, partners, approvals, promos, and reports',
+      'Partner portal — fleet management, bookings, profile, and revenue visibility',
+      'JWT authentication with admin, partner, and customer roles',
+      'Vehicle classes, branches, pricing, deposits, and booking lifecycle',
+      'Disputes, promos, and operational reporting for platform admins',
+      'Ghana-inspired green-and-gold brand system across all surfaces',
+    ],
+    architecture: `graph TB
+  A[Flutter Mobile] --> E[ASP.NET Core API]
+  B[Customer Web] --> E
+  C[Admin / Partner Web] --> E
+  E --> D[(PostgreSQL)]`,
+    technicalHighlights: [
+      'Flutter + Riverpod + GoRouter customer mobile',
+      'React + Vite + TanStack Query on web surfaces',
+      'ASP.NET Core 8 REST API with JWT and EF Core',
+      'Role-based admin vs partner navigation and guards',
+      'PostgreSQL on Render with seeded demo fleet data',
+      'Ghana green-and-gold design system across clients',
+    ],
+    outcome:
+      'End-to-end car rental product spanning customer booking on mobile and web, partner fleet operations, and platform admin controls — backed by a live staging API.',
+    featured: true,
+    priority: 5,
+    accentColor: '#006B3F',
+    year: '2026',
+    timeline: 'Full-stack suite',
+    coverImage: '/projects/car-rental/customer-web/01-home.png',
+    screenshotLayout: 'desktop',
+    brandTheme: {
+      primary: '#006B3F',
+      secondary: '#FCD116',
+      accent: '#00C896',
+    },
+    screenshots: [
+      {
+        src: '/projects/car-rental/customer-web/01-home.png',
+        alt: 'Car Rental GH customer web homepage with search hero',
+        caption: 'Customer web — search and book across Ghana',
+      },
+      {
+        src: '/projects/car-rental/admin/02-dashboard.png',
+        alt: 'Car Rental GH admin dashboard with platform stats',
+        caption: 'Admin portal — platform operations dashboard',
+      },
+      {
+        src: '/projects/car-rental/mobile/03-home.png',
+        alt: 'Car Rental GH mobile home with city search',
+        caption: 'Mobile — find your ride on the go',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Customer Web',
+        subtitle: 'Browse, book, and manage rentals in the browser',
+        layout: 'desktop',
+        items: [
+          {
+            src: '/projects/car-rental/customer-web/01-home.png',
+            alt: 'Car Rental GH customer web homepage',
+            caption: 'Home — hero search across Ghana',
+          },
+          {
+            src: '/projects/car-rental/customer-web/02-search.png',
+            alt: 'Car Rental GH vehicle search results',
+            caption: 'Search — filter available vehicles',
+          },
+          {
+            src: '/projects/car-rental/customer-web/03-login.png',
+            alt: 'Car Rental GH customer login',
+            caption: 'Sign-in — customer access',
+          },
+          {
+            src: '/projects/car-rental/customer-web/04-register.png',
+            alt: 'Car Rental GH customer registration',
+            caption: 'Register — create a free account',
+          },
+          {
+            src: '/projects/car-rental/customer-web/07-bookings.png',
+            alt: 'Car Rental GH my bookings page',
+            caption: 'Bookings — rental history',
+          },
+          {
+            src: '/projects/car-rental/customer-web/08-profile.png',
+            alt: 'Car Rental GH customer profile',
+            caption: 'Profile — account settings',
+          },
+        ],
+      },
+      {
+        title: 'Admin & Partner Portal',
+        subtitle: 'Operations hub for platform admins and fleet partners',
+        layout: 'desktop',
+        items: [
+          {
+            src: '/projects/car-rental/admin/01-login.png',
+            alt: 'Car Rental GH admin login with demo credentials',
+            caption: 'Sign-in — admin and partner roles',
+          },
+          {
+            src: '/projects/car-rental/admin/02-dashboard.png',
+            alt: 'Car Rental GH admin dashboard',
+            caption: 'Admin dashboard — platform KPIs',
+          },
+          {
+            src: '/projects/car-rental/admin/03-vehicles.png',
+            alt: 'Car Rental GH vehicle management',
+            caption: 'Vehicles — fleet oversight',
+          },
+          {
+            src: '/projects/car-rental/admin/04-bookings.png',
+            alt: 'Car Rental GH bookings management',
+            caption: 'Bookings — reservation tracking',
+          },
+          {
+            src: '/projects/car-rental/admin/06-partners.png',
+            alt: 'Car Rental GH partners list',
+            caption: 'Partners — rental company directory',
+          },
+          {
+            src: '/projects/car-rental/admin/07-approvals.png',
+            alt: 'Car Rental GH approvals queue',
+            caption: 'Approvals — partner and vehicle review',
+          },
+          {
+            src: '/projects/car-rental/admin/11-partner-dashboard.png',
+            alt: 'Car Rental GH partner dashboard',
+            caption: 'Partner dashboard — fleet and revenue',
+          },
+          {
+            src: '/projects/car-rental/admin/12-partner-fleet.png',
+            alt: 'Car Rental GH partner fleet page',
+            caption: 'Partner fleet — manage listed vehicles',
+          },
+        ],
+      },
+      {
+        title: 'Mobile App',
+        subtitle: 'Flutter customer app for search and booking on the go',
+        layout: 'mobile',
+        items: [
+          {
+            src: '/projects/car-rental/mobile/01-login.png',
+            alt: 'Car Rental GH mobile login',
+            caption: 'Login — secure customer sign-in',
+          },
+          {
+            src: '/projects/car-rental/mobile/03-home.png',
+            alt: 'Car Rental GH mobile home screen',
+            caption: 'Home — city search and offers',
+          },
+          {
+            src: '/projects/car-rental/mobile/04-search.png',
+            alt: 'Car Rental GH mobile search results',
+            caption: 'Search — available vehicles',
+          },
+          {
+            src: '/projects/car-rental/mobile/05-vehicle-detail.png',
+            alt: 'Car Rental GH mobile vehicle detail',
+            caption: 'Vehicle detail — specs and pricing',
+          },
+          {
+            src: '/projects/car-rental/mobile/06-create-booking.png',
+            alt: 'Car Rental GH mobile booking flow',
+            caption: 'Booking — confirm rental dates',
+          },
+          {
+            src: '/projects/car-rental/mobile/07-bookings.png',
+            alt: 'Car Rental GH mobile bookings list',
+            caption: 'My bookings — trip history',
+          },
+          {
+            src: '/projects/car-rental/mobile/09-profile.png',
+            alt: 'Car Rental GH mobile profile',
+            caption: 'Profile — account overview',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'whatsapp-clone',

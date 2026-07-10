@@ -22,7 +22,11 @@
     "capture:bridgecare-website": "node scripts/capture-bridgecare-website-screenshots.mjs",
     "capture:bridgecare-mobile": "node scripts/capture-bridgecare-mobile-screenshots.mjs",
     "capture:bridgecare-webapp": "node scripts/capture-bridgecare-webapp-screenshots.mjs",
-    "capture:bridgecare": "npm run capture:bridgecare-website && npm run capture:bridgecare-mobile && npm run capture:bridgecare-webapp"
+    "capture:bridgecare": "npm run capture:bridgecare-website && npm run capture:bridgecare-mobile && npm run capture:bridgecare-webapp",
+    "capture:car-rental-admin": "node scripts/capture-car-rental-admin-screenshots.mjs",
+    "capture:car-rental-customer-web": "node scripts/capture-car-rental-customer-web-screenshots.mjs",
+    "capture:car-rental-mobile": "node scripts/capture-car-rental-mobile-screenshots.mjs",
+    "capture:car-rental": "npm run capture:car-rental-admin && npm run capture:car-rental-customer-web && npm run capture:car-rental-mobile"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
