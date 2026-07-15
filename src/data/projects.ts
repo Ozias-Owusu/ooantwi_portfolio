@@ -2016,7 +2016,7 @@ export const projects: Project[] = [
       {
         title: 'Auth & onboarding',
         layout: 'mobile',
-        screenshots: [
+        items: [
           {
             src: '/projects/simple-chat/01-login.png',
             alt: 'Chirp login screen with coral logo and email password fields',
@@ -2032,7 +2032,7 @@ export const projects: Project[] = [
       {
         title: 'Chat experience',
         layout: 'mobile',
-        screenshots: [
+        items: [
           {
             src: '/projects/simple-chat/02-home.png',
             alt: 'Chirp home inbox listing chat contacts with message previews',
@@ -2053,7 +2053,7 @@ export const projects: Project[] = [
       {
         title: 'Navigation & settings',
         layout: 'mobile',
-        screenshots: [
+        items: [
           {
             src: '/projects/simple-chat/05-drawer.png',
             alt: 'Chirp navigation drawer with Home Settings and Log out',
