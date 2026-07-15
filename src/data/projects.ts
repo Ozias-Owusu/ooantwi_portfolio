@@ -1924,31 +1924,149 @@ export const projects: Project[] = [
   },
   {
     slug: 'simple-chat',
-    displayName: 'Simple Chat App',
-    category: 'Learning Project',
-    categories: ['Mobile', 'POC'],
+    displayName: 'Chirp',
+    category: 'Personal Project',
+    categories: ['Mobile', 'Backend', 'Personal'],
     role: 'Solo Developer',
-    stack: ['Flutter', 'Firebase Auth', 'Firestore'],
+    scopeLabel: 'In progress · Active development',
+    stack: ['Flutter', '.NET API', 'SignalR', 'Supabase Auth', 'Supabase Storage'],
+    githubUrl: 'https://github.com/Ozias-Owusu/SimpleChatApp',
     description:
-      'Real-time chat app with Firebase Authentication and Cloud Firestore for message sync.',
-    shortDescription: 'Firebase-powered real-time chat.',
-    problem: 'Learning exercise for Firebase real-time data patterns and auth flows.',
-    solution: 'Flutter chat app with Firebase Auth login and Firestore real-time message streams.',
+      'Chirp is a fun, real-time mobile chat app — coral-and-mint branded Flutter client talking to a .NET API over SignalR, with auth, profiles, image messages, and unread tracking. Still actively being built.',
+    shortDescription: 'Fun real-time chat app — still in active development.',
+    problem:
+      'I wanted a personal messaging product with a playful brand, not another Firebase tutorial clone — real API auth, live delivery, media, and profile identity.',
+    solution:
+      'Chirp pairs a Flutter client with a hosted .NET backend (SignalR hubs + REST). Supabase handles auth/storage; the app covers login/register, inbox, 1:1 chat with text and photos, user profiles, and editable settings — with more features still shipping.',
     features: [
-      'Firebase email/password authentication',
-      'Real-time Firestore message sync',
-      'Chat rooms and user presence',
-      'Simple Material UI',
+      'Email/password auth with session tokens',
+      'Real-time 1:1 chat over SignalR',
+      'Text and image messages with media upload',
+      'User inbox with last-message previews and unread state',
+      'Profile pages with avatar and bio',
+      'Editable settings (display name, bio, photo)',
+      'Playful Chirp brand UI (coral + mint FunBackground)',
+      'Push notification hooks for chat opens',
     ],
     architecture: `graph LR
-  A[Chat App] --> B[Firebase Auth]
-  A --> C[Cloud Firestore]`,
-    technicalHighlights: ['Firebase Auth', 'Firestore streams', 'Real-time sync'],
-    outcome: 'Learning project for Firebase backend integration patterns.',
+  A[Flutter Chirp Client] --> B[.NET REST API]
+  A --> C[SignalR Chat Hub]
+  B --> D[Supabase Auth]
+  B --> E[Supabase Storage]
+  C --> B`,
+    technicalHighlights: [
+      'SignalR real-time messaging',
+      '.NET API + Flutter client',
+      'Supabase auth & media storage',
+      'Unread inbox + active-chat tracking',
+      'Still shipping — WIP product',
+    ],
+    outcome:
+      'A living personal product (not a frozen POC). Core chat flows work end-to-end; UI polish, notifications, and feature depth are still evolving.',
     featured: false,
-    priority: 19,
-    accentColor: '#ffca28',
-    year: '2023',
+    priority: 17,
+    accentColor: '#FF6B4A',
+    timeline: 'Ongoing',
+    year: '2026',
+    coverImage: '/projects/simple-chat/04-chat-conversation.png',
+    screenshotLayout: 'mobile',
+    brandTheme: {
+      primary: '#FF6B4A',
+      secondary: '#2EC4B6',
+      accent: '#1A2B3C',
+    },
+    screenshots: [
+      {
+        src: '/projects/simple-chat/01-login.png',
+        alt: 'Chirp login screen with coral logo and email password fields',
+        caption: 'Login — welcome back to Chirp',
+      },
+      {
+        src: '/projects/simple-chat/03-register.png',
+        alt: 'Chirp registration screen with name email and password fields',
+        caption: 'Register — join Chirp',
+      },
+      {
+        src: '/projects/simple-chat/02-home.png',
+        alt: 'Chirp home inbox listing chat contacts with message previews',
+        caption: 'Inbox — who to chat with',
+      },
+      {
+        src: '/projects/simple-chat/04-chat-conversation.png',
+        alt: 'Chirp chat conversation with coral message bubble',
+        caption: 'Chat — real-time messages',
+      },
+      {
+        src: '/projects/simple-chat/05-drawer.png',
+        alt: 'Chirp navigation drawer with Home Settings and Log out',
+        caption: 'Drawer — navigation',
+      },
+      {
+        src: '/projects/simple-chat/06-settings.png',
+        alt: 'Chirp settings profile editor with display name bio and photo',
+        caption: 'Settings — edit your profile',
+      },
+      {
+        src: '/projects/simple-chat/07-user-profile.png',
+        alt: 'Chirp user profile page with avatar and about section',
+        caption: 'Profile — user identity',
+      },
+    ],
+    screenshotSections: [
+      {
+        title: 'Auth & onboarding',
+        layout: 'mobile',
+        screenshots: [
+          {
+            src: '/projects/simple-chat/01-login.png',
+            alt: 'Chirp login screen with coral logo and email password fields',
+            caption: 'Sign in',
+          },
+          {
+            src: '/projects/simple-chat/03-register.png',
+            alt: 'Chirp registration screen with name email and password fields',
+            caption: 'Create account',
+          },
+        ],
+      },
+      {
+        title: 'Chat experience',
+        layout: 'mobile',
+        screenshots: [
+          {
+            src: '/projects/simple-chat/02-home.png',
+            alt: 'Chirp home inbox listing chat contacts with message previews',
+            caption: 'Inbox',
+          },
+          {
+            src: '/projects/simple-chat/04-chat-conversation.png',
+            alt: 'Chirp chat conversation with coral message bubble',
+            caption: 'Conversation',
+          },
+          {
+            src: '/projects/simple-chat/07-user-profile.png',
+            alt: 'Chirp user profile page with avatar and about section',
+            caption: 'Profile',
+          },
+        ],
+      },
+      {
+        title: 'Navigation & settings',
+        layout: 'mobile',
+        screenshots: [
+          {
+            src: '/projects/simple-chat/05-drawer.png',
+            alt: 'Chirp navigation drawer with Home Settings and Log out',
+            caption: 'Side drawer',
+          },
+          {
+            src: '/projects/simple-chat/06-settings.png',
+            alt: 'Chirp settings profile editor with display name bio and photo',
+            caption: 'Edit profile',
+          },
+        ],
+      },
+    ],
   },
   {
     slug: 'kiosk-demo',

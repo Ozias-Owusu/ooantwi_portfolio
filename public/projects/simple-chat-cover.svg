@@ -1,15 +1,30 @@
-﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'>
-  <defs><linearGradient id='g' x1='0' y1='0' x2='800' y2='500'><stop stop-color='#ffca28'/><stop offset='1' stop-color='#f59e0b'/></linearGradient></defs>
-  <rect width='800' height='500' fill='#0a0f14'/>
-  <rect x='40' y='40' width='720' height='420' rx='24' fill='url(#g)' opacity='0.25'/>
-  <rect x='80' y='100' width='280' height='180' rx='16' fill='#121a22' opacity='0.9'/>
-  <rect x='100' y='120' width='120' height='12' rx='4' fill='#ffca28' opacity='0.8'/>
-  <rect x='100' y='145' width='200' height='8' rx='4' fill='#94a3b8' opacity='0.4'/>
-  <rect x='100' y='165' width='160' height='8' rx='4' fill='#94a3b8' opacity='0.3'/>
-  <rect x='100' y='200' width='80' height='32' rx='8' fill='#ffca28' opacity='0.6'/>
-  <rect x='400' y='100' width='280' height='280' rx='16' fill='#161f2a' opacity='0.85'/>
-  <circle cx='540' cy='200' r='60' fill='#ffca28' opacity='0.3'/>
-  <rect x='440' y='280' width='200' height='12' rx='4' fill='#94a3b8' opacity='0.35'/>
-  <rect x='440' y='305' width='140' height='12' rx='4' fill='#94a3b8' opacity='0.25'/>
-  <text x='80' y='420' font-family='system-ui,sans-serif' font-size='28' font-weight='700' fill='#f1f5f9'>Simple Chat</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500">
+      <stop stop-color="#FFF8F0"/>
+      <stop offset="1" stop-color="#B8F2E6"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FF6B4A"/>
+      <stop offset="1" stop-color="#E85A3C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="120" cy="80" r="140" fill="#FF6B4A" opacity="0.12"/>
+  <circle cx="720" cy="420" r="180" fill="#2EC4B6" opacity="0.14"/>
+  <circle cx="640" cy="60" r="90" fill="#4CC9F0" opacity="0.12"/>
+  <!-- phone frame -->
+  <rect x="280" y="40" width="240" height="420" rx="36" fill="#1A2B3C"/>
+  <rect x="292" y="56" width="216" height="388" rx="28" fill="#FFF8F0"/>
+  <rect x="360" y="68" width="80" height="8" rx="4" fill="#1A2B3C" opacity="0.2"/>
+  <!-- logo -->
+  <rect x="368" y="110" width="64" height="64" rx="18" fill="url(#coral)"/>
+  <path d="M386 138h28a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4h-10l-8 8v-8h-10a4 4 0 0 1-4-4v-16a4 4 0 0 1 4-4z" fill="#fff"/>
+  <text x="400" y="204" text-anchor="middle" font-family="Segoe UI,system-ui,sans-serif" font-size="22" font-weight="700" fill="#1A2B3C">Chirp</text>
+  <!-- chat bubbles -->
+  <rect x="320" y="230" width="120" height="36" rx="14" fill="#fff"/>
+  <rect x="400" y="280" width="100" height="36" rx="14" fill="#FF6B4A"/>
+  <rect x="320" y="330" width="110" height="36" rx="14" fill="#fff"/>
+  <text x="80" y="450" font-family="Segoe UI,system-ui,sans-serif" font-size="28" font-weight="700" fill="#1A2B3C">Chirp</text>
+  <text x="80" y="478" font-family="Segoe UI,system-ui,sans-serif" font-size="14" fill="#5C6B7A">In progress · real-time chat</text>
 </svg>
