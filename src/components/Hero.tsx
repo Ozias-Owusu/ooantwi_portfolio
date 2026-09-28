@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { ArrowRight, CalendarClock, MapPin } from 'lucide-react'
 import { profile } from '@/data/profile'
 import StatsStrip from './StatsStrip'
 
@@ -28,12 +28,20 @@ export default function Hero() {
     <section className="relative overflow-hidden px-4 pb-20 pt-12 md:px-6 md:pb-28 md:pt-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
         <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div
-            variants={item}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-card)] px-3 py-1 text-sm text-[var(--text-muted)]"
-          >
-            <MapPin size={14} className="text-[var(--accent)]" />
-            {profile.location}
+          <motion.div variants={item} className="mb-4 flex flex-wrap gap-2">
+            {profile.availability.open && (
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-sm font-medium text-emerald-500">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                {profile.availability.label}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-card)] px-3 py-1 text-sm text-[var(--text-muted)]">
+              <MapPin size={14} className="text-[var(--accent)]" />
+              {profile.location}
+            </span>
           </motion.div>
 
           <motion.h1
@@ -72,6 +80,17 @@ export default function Hero() {
             >
               Contact Me
             </Link>
+            {profile.bookingUrl && (
+              <a
+                href={profile.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-ring inline-flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] px-6 py-3 font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]"
+              >
+                <CalendarClock size={18} />
+                Book a Call
+              </a>
+            )}
           </motion.div>
 
           <motion.div variants={item} className="mt-12">

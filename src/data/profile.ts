@@ -5,11 +5,18 @@ export const profile = {
   location: 'Accra, Ghana',
   tagline:
     'I build software that helps real communities — from local vendors to enterprise teams.',
-  email: 'your.email@example.com',
-  phone: '+233 XX XXX XXXX',
+  email: 'ozykay42@gmail.com',
+  phone: '+233 24 637 5590',
   linkedin: 'https://linkedin.com/in/owusu-antwi',
   github: 'https://github.com/ooantwi',
   resumePath: '/resume.pdf',
+  availability: {
+    open: true,
+    label: 'Available for freelance projects',
+    detail: 'Remote-friendly · Replies within 24 hours · GMT (Accra)',
+  },
+  // Cal.com / Calendly link. Leave empty to hide all "Book a call" buttons.
+  bookingUrl: '' as string,
   heroHeadline: 'I build products that reach real people.',
   heroSubhead:
     'Full-stack & mobile developer in Ghana — React, Flutter, ASP.NET Core, and Kotlin for enterprise teams and local communities.',

@@ -1,4 +1,4 @@
-import { FolderGit2, Globe, Mail, MapPin, Phone } from 'lucide-react'
+import { CalendarClock, FolderGit2, Globe, Mail, MapPin, Phone } from 'lucide-react'
 import SEO from '@/components/SEO'
 import SectionHeading from '@/components/SectionHeading'
 import ContactForm from '@/components/ContactForm'
@@ -20,13 +20,31 @@ export default function Contact() {
             <SectionHeading
               eyebrow="Contact"
               title="Let's talk"
-              subtitle="Have a project in mind? Send a message or reach out directly."
+              subtitle={`Have a project in mind? Send a message or reach out directly. ${profile.availability.detail}.`}
             />
           </ScrollReveal>
 
           <div className="grid gap-10 lg:grid-cols-5">
             <ScrollReveal className="lg:col-span-2">
               <div className="space-y-6">
+                {profile.bookingUrl && (
+                  <a
+                    href={profile.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring glass-card flex items-center gap-4 rounded-2xl p-6 transition-colors hover:border-[var(--accent)]"
+                  >
+                    <CalendarClock size={28} className="shrink-0 text-[var(--accent)]" />
+                    <span>
+                      <span className="block font-display font-semibold text-[var(--text-primary)]">
+                        Book a free 20-min intro call
+                      </span>
+                      <span className="block text-sm text-[var(--text-muted)]">
+                        Pick a time that suits you — it goes straight on my calendar.
+                      </span>
+                    </span>
+                  </a>
+                )}
                 <div className="glass-card rounded-2xl p-6">
                   <h3 className="mb-4 font-display font-semibold text-[var(--text-primary)]">
                     Direct Contact
@@ -41,9 +59,14 @@ export default function Contact() {
                         {profile.email}
                       </a>
                     </li>
-                    <li className="flex items-center gap-3 text-[var(--text-muted)]">
-                      <Phone size={18} className="shrink-0 text-[var(--accent)]" />
-                      {profile.phone}
+                    <li>
+                      <a
+                        href={`tel:${profile.phone.replace(/\s/g, '')}`}
+                        className="focus-ring flex items-center gap-3 text-[var(--text-muted)] hover:text-[var(--accent)]"
+                      >
+                        <Phone size={18} className="shrink-0 text-[var(--accent)]" />
+                        {profile.phone}
+                      </a>
                     </li>
                     <li className="flex items-center gap-3 text-[var(--text-muted)]">
                       <MapPin size={18} className="shrink-0 text-[var(--accent)]" />

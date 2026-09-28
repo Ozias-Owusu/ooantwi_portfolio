@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Quote } from 'lucide-react'
+import { ArrowRight, CalendarClock, Quote } from 'lucide-react'
 import SEO from '@/components/SEO'
 import Hero from '@/components/Hero'
 import SectionHeading from '@/components/SectionHeading'
 import ProjectCard from '@/components/ProjectCard'
+import ServiceGrid from '@/components/ServiceGrid'
 import SkillGrid from '@/components/SkillGrid'
 import Timeline from '@/components/Timeline'
 import ScrollReveal from '@/components/ScrollReveal'
@@ -55,6 +56,19 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <ScrollReveal>
             <SectionHeading
+              eyebrow="Services"
+              title="How I can help"
+              subtitle="Hire me for a new build, a feature, or to rescue an existing app — web, mobile, or backend."
+            />
+          </ScrollReveal>
+          <ServiceGrid />
+        </div>
+      </section>
+
+      <section className="px-4 py-16 md:px-6 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <ScrollReveal>
+            <SectionHeading
               eyebrow="Skills & Stack"
               title="What I work with"
               subtitle="Full-stack development across web, mobile, backend, and cloud."
@@ -64,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 py-16 md:px-6 md:py-24">
+      <section className="border-y border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-6xl">
           <ScrollReveal>
             <SectionHeading
@@ -109,13 +123,26 @@ export default function Home() {
               <p className="mx-auto mt-3 max-w-xl text-[var(--text-muted)]">
                 Whether it&apos;s a marketplace, enterprise app, or community tool — I&apos;d love to hear about it.
               </p>
-              <Link
-                to="/contact"
-                className="focus-ring mt-8 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] px-8 py-3 font-semibold text-[#0a0f14] transition-transform hover:scale-[1.02]"
-              >
-                Get in Touch
-                <ArrowRight size={18} />
-              </Link>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link
+                  to="/contact"
+                  className="focus-ring inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-2)] px-8 py-3 font-semibold text-[#0a0f14] transition-transform hover:scale-[1.02]"
+                >
+                  Get in Touch
+                  <ArrowRight size={18} />
+                </Link>
+                {profile.bookingUrl && (
+                  <a
+                    href={profile.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring inline-flex items-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] px-8 py-3 font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--accent)]"
+                  >
+                    <CalendarClock size={18} />
+                    Book a Call
+                  </a>
+                )}
+              </div>
             </div>
           </ScrollReveal>
         </div>
